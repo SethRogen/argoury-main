@@ -46,12 +46,7 @@ public class Wilderness implements ActionHandler, ObjectOptionHandler, ButtonHan
 
     @Override
     public void handleObjectOption1(final Player player, GameObject obj) {
-        // TODO Disabled until proper warning frames are found
-        //if(!player.getAttributes().is("wilderness_warned")) {
-        //    Static.proto.sendInterface(player, WILDERNESS_WARNING_SCREEN);
-        //} else {
         handleJump(player);
-        //}
     }
 
     @Override
@@ -65,19 +60,15 @@ public class Wilderness implements ActionHandler, ObjectOptionHandler, ButtonHan
     private void handleJump(final Player player) {
         player.getPathProcessor().reset(true);
         player.getPathProcessor().setMoveSpeed(PathProcessor.MOVE_SPEED_WALK);
-
         final int yOffset = player.getY() >= 3523 ? -3 : 3;
         final Tile dest = player.getLocation().translate(0, yOffset, 0);
         final int direction = yOffset < 0 ? 2 : 0;
-
         player.faceDirection(dest);
-
         player.registerTick(new Tick("wilderness_wall") {
             @Override
             public boolean execute() {
                 player.doAnimation(6703);
-                player.getMasks().setMovement(new Movement(0, 0, 0, player.getY() >= 3523 ? -3 : 3, 33, 60, direction));
-
+                player.getMasks().setMovement(new Movement(0, 0, 0, player.getY() >= 3523 ? -3 : 3, 30, 60, direction));
                 player.registerTick(new Tick("wilderness_wall2") {
                     @Override
                     public boolean execute() {
