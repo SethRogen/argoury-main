@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+    <entry>
+        <string>Vial</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>229</int>
+                <int>229</int>
+                <int>229</int>
+                <int>229</int>
+            </doseIds>
+            <name>Vial</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Restore potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>131</int>
+                <int>129</int>
+                <int>127</int>
+                <int>2430</int>
+            </doseIds>
+            <name>Restore potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Prayer potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>143</int>
+                <int>141</int>
+                <int>139</int>
+                <int>2434</int>
+            </doseIds>
+            <name>Prayer potion</name>
+            <affectedLevelIds>
+                <int>5</int>
+            </affectedLevelIds>
+            <baseBoosts>
+                <int>7</int>
+            </baseBoosts>
+            <multiplyFactors>
+                <float>0.25</float>
+            </multiplyFactors>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super attack</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>149</int>
+                <int>147</int>
+                <int>145</int>
+                <int>2436</int>
+            </doseIds>
+            <name>Super attack</name>
+            <affectedLevelIds>
+                <int>0</int>
+            </affectedLevelIds>
+            <baseBoosts>
+                <int>5</int>
+            </baseBoosts>
+            <multiplyFactors>
+                <float>0.15</float>
+            </multiplyFactors>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super strength</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>161</int>
+                <int>159</int>
+                <int>157</int>
+                <int>2440</int>
+            </doseIds>
+            <name>Super strength</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super defence</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>167</int>
+                <int>165</int>
+                <int>163</int>
+                <int>2442</int>
+            </doseIds>
+            <name>Super defence</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Attack potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>125</int>
+                <int>123</int>
+                <int>121</int>
+                <int>2428</int>
+            </doseIds>
+            <name>Attack potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Strength potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>119</int>
+                <int>117</int>
+                <int>116</int>
+                <int>113</int>
+            </doseIds>
+            <name>Strength potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Defence potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>137</int>
+                <int>135</int>
+                <int>133</int>
+                <int>2432</int>
+            </doseIds>
+            <name>Defence potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Fishing potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>155</int>
+                <int>153</int>
+                <int>151</int>
+                <int>2438</int>
+            </doseIds>
+            <name>Fishing potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Ranging potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>173</int>
+                <int>171</int>
+                <int>169</int>
+                <int>2444</int>
+            </doseIds>
+            <name>Ranging potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Antipoison</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>179</int>
+                <int>177</int>
+                <int>175</int>
+                <int>2434</int>
+            </doseIds>
+            <name>Antipoison</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super antipoison</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>185</int>
+                <int>183</int>
+                <int>181</int>
+                <int>2448</int>
+            </doseIds>
+            <name>Super antipoison</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Zamorak brew</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>193</int>
+                <int>191</int>
+                <int>189</int>
+                <int>2450</int>
+            </doseIds>
+            <name>Zamorak brew</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Antifire</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>2458</int>
+                <int>2456</int>
+                <int>2454</int>
+                <int>2452</int>
+            </doseIds>
+            <name>Antifire</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Energy potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>3014</int>
+                <int>3012</int>
+                <int>3010</int>
+                <int>3008</int>
+            </doseIds>
+            <name>Energy potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super energy</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>3022</int>
+                <int>3020</int>
+                <int>3018</int>
+                <int>3016</int>
+            </doseIds>
+            <name>Super energy</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Agility potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>3038</int>
+                <int>3036</int>
+                <int>3034</int>
+                <int>3032</int>
+            </doseIds>
+            <name>Agility potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Magic potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>3046</int>
+                <int>3044</int>
+                <int>3042</int>
+                <int>3040</int>
+            </doseIds>
+            <name>Magic potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Saradomin brew</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>6691</int>
+                <int>6689</int>
+                <int>6687</int>
+                <int>6685</int>
+            </doseIds>
+            <name>Saradomin brew</name>
+            <affectedLevelIds>
+                <int>0</int>
+                <int>1</int>
+                <int>2</int>
+                <int>4</int>
+                <int>6</int>
+            </affectedLevelIds>
+            <baseBoosts>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+                <int>0</int>
+            </baseBoosts>
+            <multiplyFactors>
+                <float>-0.10</float>
+                <float>0.25</float>
+                <float>-0.10</float>
+                <float>-0.10</float>
+                <float>-0.10</float>
+            </multiplyFactors>
+            <hpMultiplier>0.15</hpMultiplier>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super restore</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>3030</int>
+                <int>3028</int>
+                <int>3026</int>
+                <int>3024</int>
+            </doseIds>
+            <name>Super restore</name>
+            <affectedLevelIds>
+                <int>0</int>
+                <int>1</int>
+                <int>2</int>
+                <int>3</int>
+                <int>4</int>
+                <int>5</int>
+                <int>6</int>
+                <int>7</int>
+                <int>8</int>
+                <int>9</int>
+                <int>10</int>
+                <int>11</int>
+                <int>12</int>
+                <int>13</int>
+                <int>14</int>
+                <int>15</int>
+                <int>16</int>
+                <int>17</int>
+                <int>18</int>
+                <int>19</int>
+                <int>20</int>
+                <int>21</int>
+                <int>22</int>
+                <int>23</int>
+                <int>24</int>
+            </affectedLevelIds>
+            <baseBoosts>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+                <int>8</int>
+            </baseBoosts>
+            <multiplyFactors>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+                <float>0.25</float>
+            </multiplyFactors>
+        </potion>
+    </entry>
+    <entry>
+        <string>Combat potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>9745</int>
+                <int>9743</int>
+                <int>9741</int>
+                <int>9739</int>
+            </doseIds>
+            <name>Combat potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Hunter potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>10004</int>
+                <int>10002</int>
+                <int>10000</int>
+                <int>9998</int>
+            </doseIds>
+            <name>Hunter potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Summoning potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>12146</int>
+                <int>12144</int>
+                <int>12142</int>
+                <int>12140</int>
+            </doseIds>
+            <name>Summoning potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Crafting potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>14844</int>
+                <int>14842</int>
+                <int>14840</int>
+                <int>14838</int>
+            </doseIds>
+            <name>Crafting potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Fletching potion</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>14852</int>
+                <int>14850</int>
+                <int>14848</int>
+                <int>14846</int>
+            </doseIds>
+            <name>Fletching potion</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Recover special</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15303</int>
+                <int>15302</int>
+                <int>15301</int>
+                <int>15300</int>
+            </doseIds>
+            <name>Recover special</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super antifire</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15307</int>
+                <int>15306</int>
+                <int>15305</int>
+                <int>15304</int>
+            </doseIds>
+            <name>Super antifire</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Extreme attack</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15311</int>
+                <int>15310</int>
+                <int>15309</int>
+                <int>15308</int>
+            </doseIds>
+            <name>Extreme attack</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Extreme strength</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15315</int>
+                <int>15314</int>
+                <int>15313</int>
+                <int>15312</int>
+            </doseIds>
+            <name>Extreme strength</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Extreme defence</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15319</int>
+                <int>15318</int>
+                <int>15317</int>
+                <int>15316</int>
+            </doseIds>
+            <name>Extreme defence</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Extreme magic</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15323</int>
+                <int>15322</int>
+                <int>15321</int>
+                <int>15320</int>
+            </doseIds>
+            <name>Extreme magic</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Extreme ranging</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15327</int>
+                <int>15326</int>
+                <int>15325</int>
+                <int>15324</int>
+            </doseIds>
+            <name>Extreme ranging</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Super prayer</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15331</int>
+                <int>15330</int>
+                <int>15339</int>
+                <int>15328</int>
+            </doseIds>
+            <name>Super prayer</name>
+        </potion>
+    </entry>
+    <entry>
+        <string>Overload</string>
+        <potion>
+            <doseIds>
+                <int>229</int>
+                <int>15335</int>
+                <int>15334</int>
+                <int>15333</int>
+                <int>15332</int>
+            </doseIds>
+            <name>Overload</name>
+        </potion>
+    </entry>
+</map>

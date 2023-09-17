@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+ 
+    <entry>
+        <string>Shark</string>
+        <eatableFood>
+            <name>Shark</name>
+            <foodIds>
+                <int>15272</int>
+            </foodIds>
+            <restore>200</restore>
+            <container>false</container>
+        </eatableFood>
+    </entry>
+
+    <entry>
+        <string>Rocktail</string>
+        <eatableFood>
+            <name>Rocktail</name>
+            <foodIds>
+                <int>15272</int>
+            </foodIds>
+            <restore>230</restore>
+            <constitutionBoost>10</constitutionBoost>
+            <container>false</container>
+        </eatableFood>
+    </entry>
+    
+    <entry>
+        <string>Cake</string>
+        <eatableFood>
+            <name>Cake</name>
+            <foodIds>
+                <int>1895</int>
+                <int>1893</int>
+                <int>1891</int>
+            </foodIds>
+            <restore>40</restore>
+            <container>false</container>
+        </eatableFood>
+    </entry>
+
+    <entry>
+        <string>Anchovy pizza</string>
+        <eatableFood>
+            <name>Anchovy pizza</name>
+            <foodIds>
+                <int>2299</int>
+                <int>2297</int>
+            </foodIds>
+            <restore>90</restore>
+            <container>false</container>
+        </eatableFood>
+    </entry>
+
+    <entry>
+        <string>Redberry pie</string>
+        <eatableFood>
+            <name>Redberry pie</name>
+            <foodIds>
+                <int>2313</int>
+                <int>2333</int>
+                <int>2325</int>
+            </foodIds>
+            <restore>90</restore>
+            <container>true</container>
+        </eatableFood>
+    </entry>
+
+    <entry>
+        <string>Cavefish</string>
+        <eatableFood>
+            <name>Cavefish</name>
+            <foodIds>
+                <int>15266</int>
+            </foodIds>
+            <restore>200</restore>
+            <affectedLevelIds>
+                <int>0</int>
+                <int>1</int>
+                <int>2</int>
+            </affectedLevelIds>
+            <baseBoosts>
+                <int>2</int>
+                <int>2</int>
+                <int>2</int>
+            </baseBoosts>
+            <container>false</container>
+        </eatableFood>
+    </entry>
+
+</map>

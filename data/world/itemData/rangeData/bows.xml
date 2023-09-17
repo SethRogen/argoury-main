@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+
+	<entry>
+		<int>861</int>
+		<bow>
+			<id>861</id>
+			<animationId>426</animationId>
+			<animationDelay>0</animationDelay>
+			<specialName>MAGIC_SHORTBOW</specialName>
+			<bowType>SHORT_BOW</bowType>
+			<bowMaterial>MAGIC</bowMaterial>
+			<speed>4</speed>
+		</bow>
+	</entry>
+	
+	<entry>
+		<int>9185</int>
+		<bow>
+			<id>9185</id>
+			<animationId>4230</animationId>
+			<animationDelay>0</animationDelay>
+			<specialName></specialName>
+			<bowType>CROSS_BOW</bowType>
+			<bowMaterial>RUNE</bowMaterial>
+			<speed>6</speed>
+		</bow>
+	</entry>
+	
+	
+</map>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+    <entry key="tile">com.ziotic.logic.map.Tile</entry>
+    <entry key="npcDef">com.ziotic.logic.npc.NPCXMLDefinition</entry>
+    <entry key="npcSpawn">com.ziotic.logic.npc.NPCSpawn</entry>
+    <entry key="itemDef">com.ziotic.logic.item.ItemXMLDefinition</entry>
+    <entry key="equipmentDefinition">com.ziotic.logic.item.EquipmentDefinition</entry>
+    <entry key="weaponStyles">com.ziotic.logic.item.EquipmentDefinition$WeaponStyles</entry>
+    <entry key="equipmentAnimations">com.ziotic.logic.item.EquipmentDefinition$EquipmentAnimations</entry>
+    <entry key="equipmentType">com.ziotic.logic.item.EquipmentDefinition$EquipmentType</entry>
+    <entry key="potion">com.ziotic.logic.item.ConsumablesHandler$Potion</entry>
+    <entry key="eatableFood">com.ziotic.logic.item.ConsumablesHandler$EatableFood</entry>
+    <entry key="ancientCurse">com.ziotic.content.prayer.definitions.AncientCurseDefinition</entry>
+    <entry key="curseType">com.ziotic.content.prayer.PrayerManager$CurseType</entry>
+    <entry key="prayerDef">com.ziotic.content.prayer.definitions.PrayerDefinition</entry>
+    <entry key="prayerType">com.ziotic.content.prayer.PrayerManager$PrayerType</entry>
+    <entry key="spell">com.ziotic.content.combat.definitions.SpellDefinition</entry>
+    <entry key="item">com.ziotic.logic.item.PossesedItem</entry>
+    <entry key="elementType">com.ziotic.content.combat.definitions.SpellDefinition$ElementType</entry>
+    <entry key="combatType">com.ziotic.content.combat.definitions.SpellDefinition$CombatType</entry>
+    <entry key="groupType">com.ziotic.content.combat.definitions.SpellDefinition$GroupType</entry>
+    <entry key="shop">com.ziotic.content.shop.ShopDefinition</entry>
+    <entry key="ammunition">com.ziotic.content.combat.definitions.AmmunitionDefinition</entry>
+    <entry key="ammunitionType">com.ziotic.content.combat.definitions.AmmunitionDefinition$Type</entry>
+    <entry key="ammunitionMaterial">com.ziotic.content.combat.definitions.AmmunitionDefinition$Material</entry>
+    <entry key="ammunitionPoison">com.ziotic.content.combat.definitions.AmmunitionDefinition$Poison</entry>
+    <entry key="boltTip">com.ziotic.content.combat.definitions.AmmunitionDefinition$BoltTip</entry>
+    <entry key="bow">com.ziotic.content.combat.definitions.BowDefinition</entry>
+    <entry key="bowType">com.ziotic.content.combat.definitions.BowDefinition$Type</entry>
+    <entry key="bowMaterial">com.ziotic.content.combat.definitions.BowDefinition$Material</entry>
+    <entry key="world">com.ziotic.link.WorldEntry</entry>
+    <entry key="pouch">com.ziotic.content.skill.summoning.SummoningPouch</entry>
+    <entry key="attackType">com.ziotic.logic.npc.NPCXMLDefinition$AttackType</entry>
+    <entry key="meleeType">com.ziotic.logic.npc.NPCXMLDefinition$MeleeStyle</entry>
+    <entry key="fishingSpot">com.ziotic.logic.npc.misc.FishingSpotNPC</entry>
+</properties>

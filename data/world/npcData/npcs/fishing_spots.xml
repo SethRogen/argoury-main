@@ -1,0 +1,30 @@
+<list>
+	<fishingSpot>
+		<spawn>
+			<id>317</id>
+			<location>
+				<x>3110</x>
+				<y>3434</y>
+				<z>0</z>
+			</location>
+		</spawn>
+		<tiles>
+			<tile>
+				<x>3110</x>
+				<y>3434</y>
+				<z>0</z>
+			</tile>
+			<tile>
+				<x>3104</x>
+				<y>3423</y>
+				<z>0</z>
+			</tile>
+			<tile>
+				<x>3104</x>
+				<y>3425</y>
+				<z>0</z>
+			</tile>
+		</tiles>
+	</fishingSpot>
+
+</list>

@@ -1,0 +1,30 @@
+<map>
+    <entry>
+        <int>1</int>
+	<world>
+		<id>1</id>
+		<activity>Soulwars</activity>
+		<countryId>225</countryId>
+		<countryName>United States</countryName>
+		<members>false</members>
+		<lootShare>false</lootShare>
+		<quickChat>false</quickChat>
+		<highRisk>false</highRisk>
+		<skillReq>false</skillReq>
+	</world>
+    </entry>
+    <entry>
+        <int>2</int>
+	<world>
+		<id>2</id>
+		<activity>Netherlands</activity>
+		<countryId>161</countryId>
+		<countryName>Netherlands</countryName>
+		<members>true</members>
+		<lootShare>false</lootShare>
+		<quickChat>false</quickChat>
+		<highRisk>false</highRisk>
+		<skillReq>false</skillReq>
+	</world>
+    </entry>
+</map>
