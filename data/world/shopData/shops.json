@@ -1,0 +1,62 @@
+{
+   "1": {
+       "name": "Test Shop",
+       "sampleStock": [
+           {
+               "id": "4153",
+               "amount": 1
+           },
+           {
+               "id": "4153",
+               "amount": 1
+           }
+       ],
+       "stock": [
+           {
+               "id": "4151",
+               "amount": 1
+           }
+       ],
+       "acceptedItems": []
+   },
+   "2": {
+       "name": "Test Shop 2",
+       "sampleStock": [
+           {
+               "id": "1050",
+               "amount": 2
+           },
+           {
+               "id": "1054",
+               "amount": 3
+           }
+       ],
+       "stock": [
+           {
+               "id": "4151",
+               "amount": 2
+           },
+		   {
+               "id": "4151",
+               "amount": 2
+           },
+		   {
+               "id": "4151",
+               "amount": 2
+           },
+		   {
+               "id": "4151",
+               "amount": 2
+           },
+		   {
+               "id": "4151",
+               "amount": 2
+           },
+		   {
+               "id": "4151",
+               "amount": 2
+           }
+       ],
+       "acceptedItems": [4151]
+   }
+}

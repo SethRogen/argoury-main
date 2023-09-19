@@ -1,5 +1,7 @@
 package com.ziotic.content.shop;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.ziotic.Static;
 import com.ziotic.content.handler.ActionHandler;
 import com.ziotic.content.handler.ActionHandlerSystem;
@@ -8,6 +10,8 @@ import com.ziotic.logic.player.Player;
 import com.ziotic.utility.Logging;
 import org.apache.log4j.Logger;
 
+import java.io.FileReader;
+import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,14 +34,18 @@ public class ShopManager implements ActionHandler, ButtonHandler {
     @Override
     public void load(ActionHandlerSystem system) throws Exception {
         system.registerButtonHandler(new int[]{620, 621}, this);
-
-        Map<Integer, ShopDefinition> shopDefs = Static.xml.readObject(Static.parseString("%WORK_DIR%/world/shopData/shops.xml"));
-        for (Map.Entry<Integer, ShopDefinition> shopDef : shopDefs.entrySet()) {
-            Shop shop = new Shop(shopDef.getKey(), shopDef.getValue().sampleStock, shopDef.getValue().stock, 39, shopDef.getValue().acceptedItems, shopDef.getValue().name);
-            shops.put(shopDef.getKey(), shop);
-            Static.engine.scheduleRecurringEvent(shop);
+        Gson gson = new Gson();
+        try (Reader reader = new FileReader(Static.parseString("%WORK_DIR%/world/shopData/shops.json"))) {
+            Map<Integer, ShopDefinition> shopDefs = gson.fromJson(reader, new TypeToken<Map<Integer, ShopDefinition>>() {}.getType());
+            for (Map.Entry<Integer, ShopDefinition> shopDefEntry : shopDefs.entrySet()) {
+                Integer shopId = shopDefEntry.getKey();
+                ShopDefinition shopDef = shopDefEntry.getValue();
+                Shop shop = new Shop(shopId, shopDef.sampleStock, shopDef.stock, 39, shopDef.acceptedItems, shopDef.name);
+                shops.put(shopId, shop);
+                Static.engine.scheduleRecurringEvent(shop);
+            }
+            logger.info("Loaded " + shopDefs.size() + " shops.");
         }
-        logger.info("Loaded " + shops.size() + " shops.");
     }
 
     @Override
