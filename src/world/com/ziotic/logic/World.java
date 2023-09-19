@@ -1,5 +1,6 @@
 package com.ziotic.logic;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -7,9 +8,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
+import java.io.FileReader;
 
 import org.apache.log4j.Logger;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.ziotic.Static;
 import com.ziotic.adapter.protocol.update.NPCUpdateAdapter;
 import com.ziotic.adapter.protocol.update.PlayerUpdaterAdapter;
@@ -259,27 +263,28 @@ public final class World implements Runnable {
         Static.engine.submit(new LocalPlayerListSynchronizer());
     }
 
-    private void loadNPCsAndCorrespondingRegions() {
-        if (!npcs.isEmpty()) {
-            for (NPC npc : npcs) {
-                npc.destroy();
-            }
-            npcs.clear();
+	private void loadNPCsAndCorrespondingRegions() {
+	    if (!npcs.isEmpty()) {
+	        for (NPC npc : npcs) {
+	            npc.destroy();
+	        }
+	        npcs.clear();
 
-            logger.info("Destroyed all currently loaded NPCs!");
-        }
-        try {
-            List<NPCSpawn> spawns = Static.xml.readObject(Static.parseString("%WORK_DIR%/world/npcData/npcspawns.xml"));
-            for (NPCSpawn spawn : spawns) {
-                register(new NPC(spawn));
-            }
-            FishingSpotNPC.load(); // loads fishing spots
-
-            logger.info("Loaded " + spawns.size() + " NPC spawns");
-        } catch (Exception e) {
-            logger.error("Error loading NPC spawns!", e);
-        }
-    }
+	        logger.info("Destroyed all currently loaded NPCs!");
+	    }
+	    try {
+	        Gson gson = new Gson();
+	        File jsonFile = new File(Static.parseString("%WORK_DIR%/world/npcData/npcspawns.json"));
+	        List<NPCSpawn> spawns = gson.fromJson(new FileReader(jsonFile), new TypeToken<List<NPCSpawn>>() {}.getType());
+	        for (NPCSpawn spawn : spawns) {
+	            register(new NPC(spawn));
+	        }
+	        FishingSpotNPC.load(); // loads fishing spots
+	        logger.info("Loaded " + spawns.size() + " NPC spawns");
+	    } catch (Exception e) {
+	        logger.error("Error loading NPC spawns!", e);
+	    }
+	}
 
     public int getId() {
         return id;

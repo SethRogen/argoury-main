@@ -93,6 +93,8 @@ public final class Tile {
     }
 
     private void dispatchNPCEvents(NPC npc, boolean loop) {
+    	if (eventListeners == null)
+    		return;
         for(TileEventListener listener : eventListeners) {
             if(listener instanceof NPCTileEventListener) {
                 ((NPCTileEventListener) listener).onNPCEvent(npc, this);
