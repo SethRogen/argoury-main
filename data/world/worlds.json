@@ -1,0 +1,24 @@
+{
+   "1": {
+       "id": 1,
+       "activity": "Soulwars",
+       "countryId": 225,
+       "countryName": "United States",
+       "members": false,
+       "lootShare": false,
+       "quickChat": false,
+       "highRisk": false,
+       "skillReq": false
+   },
+   "2": {
+       "id": 2,
+       "activity": "Netherlands",
+       "countryId": 161,
+       "countryName": "Netherlands",
+       "members": true,
+       "lootShare": false,
+       "quickChat": false,
+       "highRisk": false,
+       "skillReq": false
+   }
+}

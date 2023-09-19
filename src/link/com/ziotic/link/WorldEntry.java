@@ -2,12 +2,9 @@ package com.ziotic.link;
 
 public class WorldEntry {
     public int id;
-
     public String activity;
-
     public int countryId;
     public String countryName;
-
     public boolean members;
     public boolean highlight;
     public boolean lootShare;

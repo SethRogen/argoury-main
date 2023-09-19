@@ -1,5 +1,7 @@
 package com.ziotic.link;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.ziotic.Application;
 import com.ziotic.Static;
 import com.ziotic.adapter.DatabaseLoader;
@@ -40,6 +42,7 @@ import java.net.InetSocketAddress;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.*;
+import java.io.*;
 
 /**
  * @author Lazaro
@@ -61,6 +64,7 @@ public class LinkServer implements Application {
     private Pool<SQLSession> sqlPool = null;
     private DatabaseLoader databaseLoader = new DatabaseLoaderAdapter();
 
+    Gson gson = new Gson();
     public void main(String[] args) throws Throwable {
         Static.appType = AppType.LINK;
         Static.engine = new Engine();
@@ -70,7 +74,10 @@ public class LinkServer implements Application {
         logger.info("Database connections pooled");
         databaseLoader.reload();
         logger.info("Database loaded");
-        worldList = Static.xml.readObject(Static.parseString("%WORK_DIR%/world/worlds.xml"));
+        try (Reader reader = new FileReader(Static.parseString("%WORK_DIR%/world/worlds.json"))) {
+            worldList = gson.fromJson(reader, new TypeToken<Map<Integer, WorldEntry>>() {}.getType());
+            logger.info("World-list loaded");
+        }
         logger.info("World-list loaded");
         Static.proto = new ProtocolAdapter();
         Static.frameManager = new FrameHandlerManager();
