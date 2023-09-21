@@ -1,4 +1,4 @@
-package com.ziotic.content.skill;
+package com.ziotic.content.skill.members.thieving;
 
 import com.ziotic.Static;
 import com.ziotic.content.handler.ActionHandlerSystem;

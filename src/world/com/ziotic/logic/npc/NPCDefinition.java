@@ -3,8 +3,8 @@ package com.ziotic.logic.npc;
 import com.ziotic.adapter.protocol.cache.format.NPCDefinitionAdapter;
 import com.ziotic.logic.dialogue.Conversation;
 import com.ziotic.logic.dialogue.Dialogue;
-import com.ziotic.logic.npc.NPCXMLDefinition.AttackType;
-import com.ziotic.logic.npc.NPCXMLDefinition.MeleeStyle;
+import com.ziotic.logic.npc.NPCDefinitionsLoader.AttackType;
+import com.ziotic.logic.npc.NPCDefinitionsLoader.MeleeStyle;
 import com.ziotic.utility.Logging;
 import org.apache.log4j.Logger;
 
@@ -34,7 +34,7 @@ public final class NPCDefinition {
 	                    def = new NPCDefinition();
 	                }
 	
-	                NPCXMLDefinition xmlDef = NPCXMLDefinition.getXMLDefinitions().get(id);
+	                NPCDefinitionsLoader xmlDef = NPCDefinitionsLoader.getXMLDefinitions().get(id);
 	                if (xmlDef != null) {
 	                    def.hp = xmlDef.hp;
 	                    def.examine = xmlDef.examine;

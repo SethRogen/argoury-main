@@ -10,17 +10,17 @@ import java.util.Map;
 /**
  * @author Lazaro
  */
-public class NPCXMLDefinition {
+public class NPCDefinitionsLoader {
     private static final Logger logger = Logging.log();
 
-    private static Map<Integer, NPCXMLDefinition> xmlDefinitions = null;
+    private static Map<Integer, NPCDefinitionsLoader> xmlDefinitions = null;
 
     public static void load() throws IOException {
         xmlDefinitions = Static.xml.readObject(Static.parseString("%WORK_DIR%/world/npcData/npcdefs.xml"));
         logger.info("Loaded " + xmlDefinitions.size() + " XML NPC definitions");
     }
 
-    public static Map<Integer, NPCXMLDefinition> getXMLDefinitions() {
+    public static Map<Integer, NPCDefinitionsLoader> getXMLDefinitions() {
         return xmlDefinitions;
     }
 

@@ -1,4 +1,4 @@
-package com.ziotic.content.skill.summoning;
+package com.ziotic.content.skill.members.summoning;
 
 import java.util.HashMap;
 import java.util.Map;

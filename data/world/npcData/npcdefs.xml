@@ -3,14 +3,14 @@
         <!-- This one has all variables, just for an example. -->
         <int>1</int>
         <npcDef>
-            <hp>100</hp>
-            <examine>One of Ziotic's many citizens.</examine>
+            <hp>70</hp>
+            <examine>One of Gielinor's many citizens.</examine>
             <attackable>true</attackable>
             <aggressive>false</aggressive>
-            <attackSpeed>5</attackSpeed>
-            <attackEmote>-1</attackEmote>
-            <defenceEmote>-1</defenceEmote>
-            <deathEmote>-1</deathEmote>
+            <attackSpeed>4</attackSpeed>
+            <attackEmote>422</attackEmote>
+            <defenceEmote>404</defenceEmote>
+            <deathEmote>836</deathEmote>
             <meleeMaxHit>10</meleeMaxHit>
             <rangedMaxHit>0</rangedMaxHit>
             <magicMaxHit>0</magicMaxHit>
@@ -22,11 +22,11 @@
                 <double>0.0</double> <!-- OFFENSIVE CRUSH -->
                 <double>0.0</double> <!-- OFFENSIVE MAGIC -->
                 <double>0.0</double> <!-- OFFENSIVE RANGED -->
-                <double>1.0</double> <!-- DEFENSIVE STAB -->
-                <double>1.0</double> <!-- DEFENSIVE SLASH -->
-                <double>1.0</double> <!-- DEFENSIVE CRUSH -->
-                <double>1.0</double> <!-- DEFENSIVE MAGIC -->
-                <double>1.0</double> <!-- DEFENSIVE RANGED -->
+                <double>-21.0</double> <!-- DEFENSIVE STAB -->
+                <double>-21.0</double> <!-- DEFENSIVE SLASH -->
+                <double>-21.0</double> <!-- DEFENSIVE CRUSH -->
+                <double>-21.0</double> <!-- DEFENSIVE MAGIC -->
+                <double>-21.0</double> <!-- DEFENSIVE RANGED -->
                 <double>0.0</double> <!-- DEFENSIVE_SUMMONING -->
                 <double>0.0</double> <!-- ABSORB MELEE -->
                 <double>0.0</double> <!-- ABSORB MAGIC -->
@@ -47,7 +47,7 @@
             </levels>
             <poisonous>false</poisonous>
             <attackType>MELEE</attackType>
-            <meleeStyle>SLASH</meleeStyle>
+            <meleeStyle>CRUSH</meleeStyle>
             <aggressiveRange>0</aggressiveRange>
             <uniqueBehaviour>false</uniqueBehaviour>
             <behaviourScript>default</behaviourScript>

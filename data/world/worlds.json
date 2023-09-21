@@ -20,5 +20,16 @@
        "quickChat": false,
        "highRisk": false,
        "skillReq": false
+   },
+      "3": {
+       "id": 3,
+       "activity": "United States",
+       "countryId": 161,
+       "countryName": "United States",
+       "members": true,
+       "lootShare": false,
+       "quickChat": false,
+       "highRisk": true,
+       "skillReq": false
    }
 }

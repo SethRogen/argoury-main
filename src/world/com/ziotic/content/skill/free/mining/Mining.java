@@ -1,9 +1,10 @@
-package com.ziotic.content.skill;
+package com.ziotic.content.skill.free.mining;
 
 import com.ziotic.Static;
 import com.ziotic.content.handler.ActionHandler;
 import com.ziotic.content.handler.ActionHandlerSystem;
 import com.ziotic.content.handler.ObjectOptionHandler;
+import com.ziotic.content.skill.HarvestingTick;
 import com.ziotic.engine.event.DelayedEvent;
 import com.ziotic.engine.tick.Tick;
 import com.ziotic.logic.item.PossesedItem;

@@ -1,4 +1,4 @@
-package com.ziotic.content.skill.fishing;
+package com.ziotic.content.skill.free.fishing;
 
 public enum Fish {
 

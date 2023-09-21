@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import com.ziotic.Static;
 import com.ziotic.content.combat.Combat.ActionType;
 import com.ziotic.content.combat.misc.CombatUtilities;
-import com.ziotic.content.skill.summoning.SummoningPouch;
+import com.ziotic.content.skill.members.summoning.SummoningPouch;
 import com.ziotic.engine.tick.Tick;
 import com.ziotic.logic.Entity;
 import com.ziotic.logic.item.ItemDefinition;
@@ -93,6 +93,7 @@ public abstract class Familiar extends NPC {
 			owner.sendMessage("Your familiar doesn't fit in this area!");
 			return;
 		}
+		owner.getInventory().remove(pouch.getPouchId(), 1);
 		// send packet's first
 		Static.proto.sendConfig(owner, 448, pouch.getPouchId());
 		Static.proto.sendConfig(owner, 1174, pouch.getNPCId());

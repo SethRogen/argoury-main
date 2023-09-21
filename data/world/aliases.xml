@@ -3,7 +3,7 @@
 
 <properties>
     <entry key="tile">com.ziotic.logic.map.Tile</entry>
-    <entry key="npcDef">com.ziotic.logic.npc.NPCXMLDefinition</entry>
+    <entry key="npcDef">com.ziotic.logic.npc.NPCDefinitionsLoader</entry>
     <entry key="npcSpawn">com.ziotic.logic.npc.NPCSpawn</entry>
     <entry key="itemDef">com.ziotic.logic.item.ItemXMLDefinition</entry>
     <entry key="equipmentDefinition">com.ziotic.logic.item.EquipmentDefinition</entry>
@@ -31,8 +31,8 @@
     <entry key="bowType">com.ziotic.content.combat.definitions.BowDefinition$Type</entry>
     <entry key="bowMaterial">com.ziotic.content.combat.definitions.BowDefinition$Material</entry>
     <entry key="world">com.ziotic.link.WorldEntry</entry>
-    <entry key="pouch">com.ziotic.content.skill.summoning.SummoningPouch</entry>
-    <entry key="attackType">com.ziotic.logic.npc.NPCXMLDefinition$AttackType</entry>
-    <entry key="meleeType">com.ziotic.logic.npc.NPCXMLDefinition$MeleeStyle</entry>
+    <entry key="pouch">com.ziotic.content.skill.members.summoning.SummoningPouch</entry>
+    <entry key="attackType">com.ziotic.logic.npc.NPCDefinitionsLoader$AttackType</entry>
+    <entry key="meleeType">com.ziotic.logic.npc.NPCDefinitionsLoader$MeleeStyle</entry>
     <entry key="fishingSpot">com.ziotic.logic.npc.misc.FishingSpotNPC</entry>
 </properties>

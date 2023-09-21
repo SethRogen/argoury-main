@@ -1,4 +1,4 @@
-package com.ziotic.content.skill.summoning;
+package com.ziotic.content.skill.members.summoning;
 
 import com.ziotic.Static;
 import com.ziotic.logic.npc.summoning.Familiar;

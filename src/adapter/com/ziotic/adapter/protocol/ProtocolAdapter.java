@@ -5,6 +5,7 @@ import com.ziotic.Static;
 import com.ziotic.content.cc.Clan;
 import com.ziotic.content.cc.Clan.Rank;
 import com.ziotic.engine.login.LoginResponse;
+import com.ziotic.engine.tick.Tick;
 import com.ziotic.link.WorldEntry;
 import com.ziotic.link.WorldServerSession;
 import com.ziotic.logic.Entity;
@@ -348,7 +349,7 @@ public final class ProtocolAdapter implements Protocol {
       */
 
     @Override
-    public Protocol sendFixedScreen(Player player) {
+    public Protocol sendFixedScreen(final Player player) {
         sendWindow(player, 548);
         sendInterface(player, 751, 548, 67, true);
         sendInterface(player, 752, 548, 192, true);
@@ -360,8 +361,16 @@ public final class ProtocolAdapter implements Protocol {
         sendInterface(player, 745, 548, 14, true);
         sendInterface(player, GameInterfaces.WILDY_SIGN);
         sendInterfaceShowConfig(player, 381, 0, !player.isInPVP());
-        if (player.isOnLogin())
-            sendInterface(player, 137, 752, 9, true);
+        if (player.isOnLogin()) { 
+            Tick tick = new Tick("Fixed_ChatBox_Delay", 1) {
+                @Override
+                public boolean execute() {
+                	sendInterface(player, 137, 752, 9, true);
+                    return false;
+                }
+            };
+            player.registerTick(tick);
+        }
         sendInterface(player, 884, 548, 202, true);
         sendAccessMask(player, -1, -1, 548, 128, 0, 2);
         sendAccessMask(player, -1, -1, 884, 11, 0, 2);
@@ -415,7 +424,7 @@ public final class ProtocolAdapter implements Protocol {
       */
 
     @Override
-    public Protocol sendResizableScreen(Player player) {
+    public Protocol sendResizableScreen(final Player player) {
         sendWindow(player, 746);
         sendInterface(player, 751, 746, 16, true);
         sendInterface(player, 752, 746, 69, true);
@@ -427,8 +436,16 @@ public final class ProtocolAdapter implements Protocol {
         sendInterface(player, 745, 746, 12, true);
         Static.proto.sendInterface(player, GameInterfaces.WILDY_SIGN);
         Static.proto.sendInterfaceShowConfig(player, 381, 0, !player.isInPVP());
-        if (player.isOnLogin())
-            sendInterface(player, 137, 752, 9, true);
+        if (player.isOnLogin()) { 
+            Tick tick = new Tick("Resized_ChatBox_Delay", 1) {
+                @Override
+                public boolean execute() {
+                	sendInterface(player, 137, 752, 9, true);
+                    return false;
+                }
+            };
+            player.registerTick(tick);
+        }
         sendInterface(player, 884, 746, 87, true);
         sendAccessMask(player, -1, -1, 746, 36, 0, 2);
         sendAccessMask(player, -1, -1, 884, 11, 0, 2);

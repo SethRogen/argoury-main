@@ -50,7 +50,7 @@ import com.ziotic.logic.mask.SplatNode;
 import com.ziotic.logic.npc.NPC;
 import com.ziotic.logic.npc.NPCDefinition;
 import com.ziotic.logic.npc.NPC.MovementType;
-import com.ziotic.logic.npc.NPCXMLDefinition.AttackType;
+import com.ziotic.logic.npc.NPCDefinitionsLoader.AttackType;
 import com.ziotic.logic.player.Levels;
 import com.ziotic.logic.player.Player;
 import com.ziotic.utility.Logging;

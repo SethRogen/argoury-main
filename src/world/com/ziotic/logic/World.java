@@ -20,7 +20,7 @@ import com.ziotic.adapter.protocol.update.PlayerUpdaterAdapter;
 import com.ziotic.content.combat.Magic;
 import com.ziotic.content.combat.Ranged;
 import com.ziotic.content.magictemp.MagicTemp;
-import com.ziotic.content.skill.summoning.SummoningPouch;
+import com.ziotic.content.skill.members.summoning.SummoningPouch;
 import com.ziotic.engine.login.LoginResponse;
 import com.ziotic.engine.misc.LocalPlayerListSynchronizer;
 import com.ziotic.engine.tick.Tick;
@@ -38,7 +38,7 @@ import com.ziotic.logic.map.Tile;
 import com.ziotic.logic.mask.Graphic;
 import com.ziotic.logic.npc.NPC;
 import com.ziotic.logic.npc.NPCSpawn;
-import com.ziotic.logic.npc.NPCXMLDefinition;
+import com.ziotic.logic.npc.NPCDefinitionsLoader;
 import com.ziotic.logic.npc.misc.FishingSpotNPC;
 import com.ziotic.logic.object.DoorManager;
 import com.ziotic.logic.object.GameObject;
@@ -237,22 +237,17 @@ public final class World implements Runnable {
         if (Static.isGame()) {
             players = new NodeCollection<Player>(1, 2048);
             npcs = new NodeCollection<NPC>(1, 32768);
-
             groundItemManager = new GroundItemManager();
             objectManager = new ObjectManager();
             doorManager = new DoorManager();
             doorManager.load();
             playerUpdater = new PlayerUpdaterAdapter();
             npcUpdater = new NPCUpdateAdapter();
-
             ItemXMLDefinition.load();
             ItemDefinition.loadEquipmentIds();
-
             EquipmentDefinition.load();
-
-            NPCXMLDefinition.load();
+            NPCDefinitionsLoader.load();
             loadNPCsAndCorrespondingRegions();
-
             Magic.load();
             Ranged.load();
             SummoningPouch.load();
@@ -262,30 +257,29 @@ public final class World implements Runnable {
         }
         Static.engine.submit(new LocalPlayerListSynchronizer());
     }
+	
+	
+    private void loadNPCsAndCorrespondingRegions() {
+        if (!npcs.isEmpty()) {
+            for (NPC npc : npcs) {
+                npc.destroy();
+            }
+            npcs.clear();
+            logger.info("Destroyed all currently loaded NPCs!");
+        }
+        try {
+            List<NPCSpawn> spawns = Static.xml.readObject(Static.parseString("%WORK_DIR%/world/npcData/npcspawns.xml"));
+            for (NPCSpawn spawn : spawns) {
+                register(new NPC(spawn));
+            }
+            FishingSpotNPC.load(); // loads fishing spots
 
-	private void loadNPCsAndCorrespondingRegions() {
-	    if (!npcs.isEmpty()) {
-	        for (NPC npc : npcs) {
-	            npc.destroy();
-	        }
-	        npcs.clear();
-
-	        logger.info("Destroyed all currently loaded NPCs!");
-	    }
-	    try {
-	        Gson gson = new Gson();
-	        File jsonFile = new File(Static.parseString("%WORK_DIR%/world/npcData/npcspawns.json"));
-	        List<NPCSpawn> spawns = gson.fromJson(new FileReader(jsonFile), new TypeToken<List<NPCSpawn>>() {}.getType());
-	        for (NPCSpawn spawn : spawns) {
-	            register(new NPC(spawn));
-	        }
-	        FishingSpotNPC.load(); // loads fishing spots
-	        logger.info("Loaded " + spawns.size() + " NPC spawns");
-	    } catch (Exception e) {
-	        logger.error("Error loading NPC spawns!", e);
-	    }
-	}
-
+            logger.info("Loaded " + spawns.size() + " NPC spawns");
+        } catch (Exception e) {
+            logger.error("Error loading NPC spawns!", e);
+        }
+    }
+    
     public int getId() {
         return id;
     }
