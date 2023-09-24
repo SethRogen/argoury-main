@@ -13,7 +13,6 @@ public class WorldListHandler extends PlayerFrameHandler {
     @Override
     public void handleFrame(Player player, IoSession session, Frame frame) {
         player.setOnLogin(false);
-
         Static.proto.sendWorldList(session);
     }
 }

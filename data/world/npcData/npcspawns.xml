@@ -1,12 +1,12 @@
 <list>
     <npcSpawn>
-        <id>494</id>
+        <id>1</id>
         <location>
-            <x>3164</x>
-            <y>3488</y>
+            <x>3087</x>
+            <y>3494</y>
             <z>0</z>
         </location>
-        <range>0</range>
+        <range>5</range>
         <direction>SOUTH</direction>
     </npcSpawn>
     

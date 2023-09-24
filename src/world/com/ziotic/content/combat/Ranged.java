@@ -46,7 +46,6 @@ public class Ranged {
 	
 	public static boolean shoot(Player player, Entity victim, ActionType type, boolean special) {
 		if (canShoot(player, victim)) {
-			// TODO removeSupplies(player, victim, 1);
 			PossesedItem attack = player.getEquipment().get(EquipmentDefinition.SLOT_WEAPON);
 			if (special) {
 				if (attack != null) {
@@ -60,7 +59,6 @@ public class Ranged {
 					player.sendMessage("An error occured with code [RASPECIAL-01] please report this error.");
 					return false;
 				}
-				
 			} else {
 				AmmunitionDefinition ad = getPrimaryAmmunition(player);
 				BowDefinition bd = getBow(player);
@@ -128,7 +126,7 @@ public class Ranged {
 					player.getCombat().executeAnimation(ad.animationId, ad.animationDelay, true, false);
 				} else {
 					player.getCombat().executeAnimation(bd.animationId, bd.animationDelay, true, false);
-				}					
+				}			
 				if (!onyxBolt)
 					player.getCombat().hit(victim, type, false, strengthMultiplier, accuracy, null, 1, null, new int[] {(int) splatDelay}, new int[]{ (int) projDelay/*ad.projectileDelay / 2*/ });
 				
@@ -158,10 +156,13 @@ public class Ranged {
 			}
 			return false;
 		}
+		
 		if (!(player.getLevels().getLevel(Levels.RANGE) >= getPrimaryAmmunition(player).requiredLevel)) {
 			Static.proto.sendMessage(player, "You don't have the required level to use this ranged projectile.");
 			return false;
 		}
+		
+		removeSupplies(player, 1); //May need tweaking.
 		return true;
 	}
 	
@@ -219,6 +220,11 @@ public class Ranged {
 			}
 			return false;
 		}
+	}
+	
+	public static void removeSupplies(Player player, int amount) { 
+		PossesedItem a = player.getEquipment().get(Equipment.ARROWS_SLOT);
+		player.getEquipment().remove(a.getId(), amount);
 	}
 	
 	public static void setHasSupplies(Player player) {
@@ -417,36 +423,39 @@ public class Ranged {
 					node = new SplatNode(new Splat(victim, entity, damage_, damageSplat, SplatCause.RANGE, criticalHit, 0/*(int) splatDelay2*/));
 		    	if (hpDrainDelay < 0)
 		    		hpDrainDelay = 1;
-		    	PossesedItem defence = ((Player) victim).getEquipment().get(EquipmentDefinition.SLOT_WEAPON);
-		    	PossesedItem shield = ((Player) victim).getEquipment().get(EquipmentDefinition.SLOT_SHIELD);
 		    	final int defenceAnim;
-				if (shield != null) {
-					String name = shield.getDefinition().name;
-					if (name.contains("shield")) {
-						defenceAnim = 1156;
-					} else if (name.contains("defender")) {
-						defenceAnim = 4177;
+		    	if (victim instanceof Player) {
+		    		Player target = (Player) victim;
+		    		PossesedItem defence = player.getEquipment().get(EquipmentDefinition.SLOT_WEAPON);
+		    		PossesedItem shield = player.getEquipment().get(EquipmentDefinition.SLOT_SHIELD);
+		    		
+					if (shield != null) {
+						String name = shield.getDefinition().name;
+						if (name.contains("shield")) {
+							defenceAnim = 1156;
+						} else if (name.contains("defender")) {
+							defenceAnim = 4177;
+						} else if (defence != null) {
+							defenceAnim = ((Player) victim).getEquipment().get(EquipmentDefinition.SLOT_WEAPON)
+							.getDefinition().getEquipmentDefinition().getEquipmentAnimations().defendAnimation;
+						} else {
+							defenceAnim = EquipmentDefinition.DEFAULT_ANIMATIONS.defendAnimation;
+						}
 					} else if (defence != null) {
 						defenceAnim = ((Player) victim).getEquipment().get(EquipmentDefinition.SLOT_WEAPON)
 						.getDefinition().getEquipmentDefinition().getEquipmentAnimations().defendAnimation;
 					} else {
 						defenceAnim = EquipmentDefinition.DEFAULT_ANIMATIONS.defendAnimation;
-					}
-				} else if (defence != null) {
-					defenceAnim = ((Player) victim).getEquipment().get(EquipmentDefinition.SLOT_WEAPON)
-					.getDefinition().getEquipmentDefinition().getEquipmentAnimations().defendAnimation;
-				} else {
-					defenceAnim = EquipmentDefinition.DEFAULT_ANIMATIONS.defendAnimation;
-				}		    	
-		    	victim.registerTick(new Tick(null, (int) hpDrainDelay) {
-
-					@Override
-					public boolean execute() {
-				    	victim.getCombat().executeAnimation(defenceAnim, 0, false, false);
-						return false;
-					}
-		    		
-		    	});
+					}	
+			    	victim.registerTick(new Tick(null, (int) hpDrainDelay) {
+						@Override
+						public boolean execute() {
+					    	victim.getCombat().executeAnimation(defenceAnim, 0, false, false);
+							return false;
+						}
+			    		
+			    	});
+		    	}	
 				victim.registerHPTick(new HPRemoval(victim, damage, (int) hpDrainDelay + 1, node));
 				totalDamage += damage_;
 				player.getPrayerManager().dealHit(player, victim_, damage_, WeaponStyles.RANGED, (int) splatDelay, (int) hpDrainDelay);

@@ -47,11 +47,13 @@ public class Levels {
             }
             currentLevels[skillId] += (newLevel - oldLevel); // Add up the
             // levels.
-            if (skillId <= 6 || skillId == 23)
+            if (skillId <= 6 || skillId == 23) { 
                 calculateCombat();
-            player.doAnimation(199, 100);
+            }
+            
+            player.doGraphics(199);
             Static.proto.sendMessage(player, "You've just advanced a " + SKILL_NAME[skillId] + " level! You have reached level " + newLevel + ".");
-            // TODO Level up animations, etc.
+            // TODO Level up graphics, etc.
         }
         xpGained += amount;
         Static.proto.sendLevel(player, skillId);

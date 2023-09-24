@@ -1,0 +1,11 @@
+{
+  "npcs": [1],
+  "drops": [
+    {
+      "itemId": 4151,
+      "amount": 1,
+      "rarity": 1,
+      "degradable": 0
+    }
+  ]
+}

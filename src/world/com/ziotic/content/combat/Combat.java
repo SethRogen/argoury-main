@@ -754,9 +754,30 @@ public class Combat implements ButtonHandler {
 			@Override
 			public boolean execute() {
 				try {
+					/**
+					 * NPC Drops/Loot
+					 * TODO:
+					 */
+					if (entity instanceof NPC ) { 
+						Player killer = null;
+						int j = 0;
+						HitRegister[] register = entity.hitRegisterManager.getSortedHitRegisters();
+						while (killer == null) {
+							killer = register[j++].player;
+							if (j >= register.length)
+								break;
+						}
+						//Just have bones drop right now.
+						
+						Static.world.getGroundItemManager().add(526, 1, entity.getLocation(), killer.getProtocolName(), false);
+					}
+					/**
+					 * Player Drops/Loot
+					 */
 					Object[] iod = null;
-					if (entity instanceof Player)
+					if (entity instanceof Player) { 
 						iod = ItemsOnDeathManager.getIOD((Player) entity, ReturnType.DEATH);
+					}
 					if (iod == null) {
 						return false;
 					}

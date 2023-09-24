@@ -4,6 +4,7 @@ package com.ziotic;
  * @author Lazaro
  */
 public class Constants {
+	
     public static class Equipment {
         public static final int AMULET_SLOT = 2;
         public static final int ARROWS_SLOT = 13;

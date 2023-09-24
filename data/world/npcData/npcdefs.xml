@@ -3,7 +3,7 @@
         <!-- This one has all variables, just for an example. -->
         <int>1</int>
         <npcDef>
-            <hp>70</hp>
+            <hp>450</hp>
             <examine>One of Gielinor's many citizens.</examine>
             <attackable>true</attackable>
             <aggressive>false</aggressive>
@@ -48,7 +48,7 @@
             <poisonous>false</poisonous>
             <attackType>MELEE</attackType>
             <meleeStyle>CRUSH</meleeStyle>
-            <aggressiveRange>0</aggressiveRange>
+            <aggressiveRange>12</aggressiveRange>
             <uniqueBehaviour>false</uniqueBehaviour>
             <behaviourScript>default</behaviourScript>
         </npcDef>

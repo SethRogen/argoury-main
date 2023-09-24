@@ -83,11 +83,13 @@ public class NPCCombatHandlerTick extends Tick {
                     			return true;
                     	}
                     } else {
-                    	if (npc.getDefinition().aggressiveRange < npc.getLocation().distance(ca.victim.getLocation()) 
-                    			|| !npc.getLocation().withinRange(npc.getSpawn().location, npc.getSpawn().range)) {
+                    	if (npc.getDefinition().aggressiveRange < npc.getLocation().distance(ca.victim.getLocation())) {
                     		combat.stop(true);
                     		return false;
-                    	} 
+                    	} else if (!npc.getLocation().withinRange(npc.getSpawn().location, npc.getSpawn().range)) { 
+                    		combat.stop(true);
+                    		return false;
+                    	}
                     	return true;
                     }
         		} else {

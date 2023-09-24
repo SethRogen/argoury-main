@@ -39,6 +39,7 @@ import com.ziotic.logic.mask.Graphic;
 import com.ziotic.logic.npc.NPC;
 import com.ziotic.logic.npc.NPCSpawn;
 import com.ziotic.logic.npc.NPCDefinitionsLoader;
+import com.ziotic.logic.npc.NPCDropLoader;
 import com.ziotic.logic.npc.misc.FishingSpotNPC;
 import com.ziotic.logic.object.DoorManager;
 import com.ziotic.logic.object.GameObject;
