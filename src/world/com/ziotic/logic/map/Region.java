@@ -230,7 +230,6 @@ public final class Region {
     
     public GameObject getWallObject(int x, int y, int z) {
         load();
-
         if (walls == null || walls[z] == null) {
             return null;
         }
@@ -239,8 +238,7 @@ public final class Region {
     }
 
     public void addObject(int objectId, int x, int y, int z, int type, int direction, boolean ignoreObjects) {
-       // load(); was called too much when loading regions, re-add if it fucks up anything.
-
+       //load(); //was called too much when loading regions, re-add if it fucks up anything.
         if (objectId == -1) {
             if (!ignoreObjects) {
                 removeObject(x, y, z);

@@ -180,6 +180,12 @@ function handleCommand(player, commandQuery, cmd, args, string) {
     	var req = java.lang.Integer.parseInt(args[0])
 
     	Static.proto.sendMessage(player, "Test-" + req, null, req)
+    } else if(cmd.equals("printflags") && checkAdmin(player)) {
+    	var flagX = java.lang.Integer.parseInt(args[0])
+    	var flagY = java.lang.Integer.parseInt(args[1])
+    	var flagZ = java.lang.Integer.parseInt(args[2])
+		var flag = Region.getAbsoluteClipping(flagX,flagY,flagZ)
+    	Static.proto.sendMessage(player, "tile flag is: " + flag)
     } else if( cmd.equals("openge") && checkAdmin(player)) {
 		Static.proto.sendConfig(player, 1109, -1);
 		Static.proto.sendConfig(player, 1110, 0);

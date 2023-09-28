@@ -746,6 +746,7 @@ public class Combat implements ButtonHandler {
 	}
 	
 	public void executeGraphics(int gfxId, int gfxDelay, int gfxHeight) {
+		System.out.println("Special effect GFX ID: " + gfxId);
 		entity.doGraphics(gfxId, gfxDelay, gfxHeight);
 	}
 	

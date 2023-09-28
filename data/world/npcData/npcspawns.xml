@@ -9,6 +9,17 @@
         <range>5</range>
         <direction>SOUTH</direction>
     </npcSpawn>
+	
+	    <npcSpawn>
+        <id>81</id>
+        <location>
+            <x>3254</x>
+            <y>3260</y>
+            <z>0</z>
+        </location>
+        <range>5</range>
+        <direction>SOUTH</direction>
+    </npcSpawn>
     
     <npcSpawn>
         <id>902</id>

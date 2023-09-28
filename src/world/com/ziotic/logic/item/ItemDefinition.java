@@ -48,7 +48,7 @@ public class ItemDefinition {
                             def.weight = xmlDef.weight;
                         }
                     } else {
-                        def.weight = 0;
+                        def.weight = xmlDef.weight;
                         def.examine = "Swap this note at any bank for the equivalent item.";
                     }
 

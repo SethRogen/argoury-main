@@ -343,6 +343,152 @@ public final class Tile {
     public boolean canMove(NormalDirection dir, boolean npcCheck) {
         return canMove(dir, 1, npcCheck);
     }
+    
+    
+    public boolean canMove2(NormalDirection dir, int size, boolean npcCheck, boolean projectClipping) {
+        System.out.println("Poejctile Clipping: " + projectClipping);
+        switch (dir) {
+        case WEST:
+            for (int k = y; k < y + size; k++) {
+                if (npcCheck && Tile.locate(x - 1, k, z).containsNPCs())
+                    return false;
+                if (!projectClipping && (Region.getAbsoluteClipping(x - 1, k, z) & 0x42240000) != 0) 
+                    break;
+                else if (projectClipping && (Region.getAbsoluteClipping(x - 1, k, z) & (0x80000 | 0x20000 | 0x1000)) != 0) 
+                    return false;
+                    
+            }
+            break;
+        case EAST:
+            for (int k = y; k < y + size; k++) {
+                if (npcCheck && Tile.locate(x + size, k, z).containsNPCs())
+                    return false;
+                if (!projectClipping && (Region.getAbsoluteClipping(x + size, k, z) & 0x60240000) != 0)
+                    break;
+                else if (projectClipping && (Region.getAbsoluteClipping(x + size, k, z) & (0x80000 | 0x20000 | 0x10000)) != 0)
+                    return false;
+            }
+            break;
+        case SOUTH:
+            for (int i = x; i < x + size; i++) {
+                if (npcCheck && Tile.locate(i, y - 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping && (Region.getAbsoluteClipping(i, y - 1, z) & 0x40a40000) != 0)
+                    break;
+                else if (projectClipping && (Region.getAbsoluteClipping(i, y - 1, z) & (0x80000 | 0x20000 | 0x400)) != 0)
+                    return false;
+                
+            } 
+            break;
+        case NORTH:
+            for (int i = x; i < x + size; i++) {
+                if (npcCheck && Tile.locate(i, y + size, z).containsNPCs())
+                    return false;
+                if (!projectClipping && (Region.getAbsoluteClipping(i, y + size, z) & 0x48240000) != 0)
+                    break;
+                else if (projectClipping && (Region.getAbsoluteClipping(i, y + size, z) & (0x80000 | 0x20000 | 0x4000)) != 0)
+                    return false;
+            }
+            break;
+        case SOUTH_WEST:
+            for (int i = x; i < x + size; i++) {
+                int s = Region.getAbsoluteClipping(i, y - 1, z);
+                int w = Region.getAbsoluteClipping(i - 1, y, z);
+                int sw = Region.getAbsoluteClipping(i - 1, y - 1, z);
+                if (npcCheck && Tile.locate(i - 1, y - 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping && ((sw & 0x43a40000) != 0 || (s & 0x40a40000) != 0 || (w & 0x42240000) != 0))
+                    break;
+                else if (projectClipping && ((sw & (0x80000 | 0x20000 | 0x800)) != 0 || (s & (0x80000 | 0x20000 | 0x400)) != 0 || (w & (0x80000 | 0x20000 | 0x1000)) != 0))
+                    return false;
+            }
+            for (int k = y; k < y + size; k++) {
+                int s = Region.getAbsoluteClipping(x, k - 1, z);
+                int w = Region.getAbsoluteClipping(x - 1, k, z);
+                int sw = Region.getAbsoluteClipping(x - 1, k - 1, z);
+                if (npcCheck && Tile.locate(x - 1, k - 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping &&(sw & 0x43a40000) != 0 || (s & 0x40a40000) != 0 || (w & 0x42240000) != 0)
+                    break;
+                else if (projectClipping && ((sw & (0x80000 | 0x20000 | 0x800)) != 0 || (s & (0x80000 | 0x20000 | 0x400)) != 0 || (w & (0x80000 | 0x20000 | 0x1000)) != 0))
+                    return false;
+            }
+            break;
+        case SOUTH_EAST:
+            for (int i = x; i < x + size; i++) {
+                int s = Region.getAbsoluteClipping(i, y - 1, z);
+                int e = Region.getAbsoluteClipping(i + 1, y, z);
+                int se = Region.getAbsoluteClipping(i + 1, y - 1, z);
+                if (npcCheck && Tile.locate(i + 1, y - 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping && (se & 0x60e40000) != 0 || (s & 0x40a40000) != 0 || (e & 0x60240000) != 0)
+                    break;
+                else if (projectClipping && ((se & (0x80000 | 0x20000 | 0x200)) != 0 || (s & (0x80000 | 0x20000 | 0x400)) != 0 || (e & (0x80000 | 0x20000 | 0x10000)) != 0))
+                    return false;
+            }
+            for (int k = y; k < y + size; k++) {
+                int s = Region.getAbsoluteClipping(x + size - 1, k - 1, z);
+                int e = Region.getAbsoluteClipping(x + size, k, z);
+                int se = Region.getAbsoluteClipping(x + size, k - 1, z);
+                if (npcCheck && Tile.locate(x + 1, k - 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping &&  (se & 0x60e40000) != 0 || (s & 0x40a40000) != 0 || (e & 0x60240000) != 0)
+                    break;
+                else if (projectClipping && ((se & (0x80000 | 0x20000 | 0x200)) != 0 || (s & (0x80000 | 0x20000 | 0x400)) != 0 || (e & (0x80000 | 0x20000 | 0x10000)) != 0))
+                    return false;
+            }
+            break;
+        case NORTH_WEST:
+            for (int i = x; i < x + size; i++) {
+                int n = Region.getAbsoluteClipping(i, y + size, z);
+                int w = Region.getAbsoluteClipping(i - 1, y + size - 1, z);
+                int nw = Region.getAbsoluteClipping(i - 1, y + size, z);
+                if (npcCheck && Tile.locate(i - 1, y + size, z).containsNPCs())
+                    return false;
+                if (!projectClipping &&(nw & 0x4e240000) != 0 || (n & 0x48240000) != 0 || (w & 0x42240000) != 0)
+                    break;
+                else if (projectClipping && ((nw & (0x80000 | 0x20000 | 0x2000)) != 0 || (n & (0x80000 | 0x20000 | 0x4000)) != 0 || (w & (0x80000 | 0x20000 | 0x1000)) != 0))
+                    return false;
+            }
+            for (int k = y; k < y + size; k++) {
+                int n = Region.getAbsoluteClipping(x, y, z);
+                int w = Region.getAbsoluteClipping(x - 1, y, z);
+                int nw = Region.getAbsoluteClipping(x - 1, y + 1, z);
+                if (npcCheck && Tile.locate(x - 1, k + 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping &&(nw & 0x4e240000) != 0 || (n & 0x48240000) != 0 || (w & 0x42240000) != 0)
+                    break;
+                else if (projectClipping && ((nw & (0x80000 | 0x20000 | 0x2000)) != 0 || (n & (0x80000 | 0x20000 | 0x4000)) != 0 || (w & (0x80000 | 0x20000 | 0x1000)) != 0))
+                    return false;
+            }
+            break;
+        case NORTH_EAST:
+            for (int i = x; i < x + size; i++) {
+                int n = Region.getAbsoluteClipping(i, y + size, z);
+                int e = Region.getAbsoluteClipping(i + 1, y + size - 1, z);
+                int ne = Region.getAbsoluteClipping(i + 1, y + size, z);
+                if (npcCheck && Tile.locate(i + 1, y + size, z).containsNPCs())
+                    return false;
+                if (!projectClipping &&(ne & 0x78240000) != 0 || (n & 0x48240000) != 0 || (e & 0x60240000) != 0) 
+                    break;
+                else if (projectClipping && ((ne & (0x80000 | 0x20000 | 0x8000)) != 0 || (n & (0x80000 | 0x20000 | 0x4000)) != 0 || (e & (0x80000 | 0x20000 | 0x10000)) != 0))
+                    return false;
+            }
+            for (int k = y; k < y + size; k++) {
+                int n = Region.getAbsoluteClipping(x + size - 1, k + 1, z);
+                int e = Region.getAbsoluteClipping(x + size, k, z);
+                int ne = Region.getAbsoluteClipping(x + size, k + 1, z);
+                if (npcCheck && Tile.locate(x + size, k + 1, z).containsNPCs())
+                    return false;
+                if (!projectClipping && (ne & 0x78240000) != 0 || (n & 0x48240000) != 0 || (e & 0x60240000) != 0) 
+                    break;
+                else if (projectClipping && ((ne & (0x80000 | 0x20000 | 0x8000)) != 0 || (n & (0x80000 | 0x20000 | 0x4000)) != 0 || (e & (0x80000 | 0x20000 | 0x10000)) != 0))
+                    return false;
+            }
+            break;
+        }
+        return true;       
+    }
 
     public boolean canMove(NormalDirection dir, int size, boolean npcCheck) {
         switch (dir) {

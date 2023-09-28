@@ -1012,19 +1012,25 @@ public class CombatUtilities {
     		localDirectionInverse = Directions.directionFor(nextTile, currentTile);
     		GameObject currentObject = Region.getWallObject(currentTile);
     		GameObject nextObject = Region.getWallObject(nextTile);
+    		
+    		
     		if (currentObject != null) {
+    			System.out.println("Range Clip here 1 : " + currentObject);
+    			System.out.println("Range Clip here 2 : " + nextObject);
     			if (nextObject != null) {
-					if (!currentTile.canMove(localDirection, 1, false) || !nextTile.canMove(localDirectionInverse, 1, false))
+					if (!currentTile.canMove2(localDirection, 1, false, true) || !nextTile.canMove2(localDirectionInverse, 1, false, true))
 						break;
     			} else {
-    				if (!currentTile.canMove(localDirection, 1, false) || !nextTile.canMove(localDirectionInverse, 1, false)) 
+    				if (!currentTile.canMove2(localDirection, 1, false, true) || !nextTile.canMove2(localDirectionInverse, 1, false, true)) 
 	    				break;
     			}
     		} else if (nextObject != null) {
-    			if (!currentTile.canMove(localDirection, 1, false) || !nextTile.canMove(localDirectionInverse, 1, false))
+    			if (!currentTile.canMove2(localDirection, 1, false, true) || !nextTile.canMove2(localDirectionInverse, 1, false, true))
 					break;
     		}
-    		if (currentTile.canMove(localDirection, 1, false) && currentTile.canMove(localDirectionInverse, 1, false)) {
+    		
+    		
+    		if (currentTile.canMove2(localDirection, 1, false, true) && currentTile.canMove2(localDirectionInverse, 1, false, true)) {
     			currentTile = nextTile;
     			continue;
     		} else {
