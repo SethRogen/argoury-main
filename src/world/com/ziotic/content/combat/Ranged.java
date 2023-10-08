@@ -13,6 +13,7 @@ import com.ziotic.content.combat.definitions.AmmunitionDefinition;
 import com.ziotic.content.combat.definitions.BowDefinition;
 import com.ziotic.content.combat.misc.CombatUtilities;
 import com.ziotic.content.combat.misc.CombatUtilities.Styles;
+import com.ziotic.content.combat.misc.HitRegisterManager.HitRegister;
 import com.ziotic.engine.tick.Tick;
 import com.ziotic.logic.HPHandlerTick.HPAddition;
 import com.ziotic.logic.Entity;
@@ -162,7 +163,7 @@ public class Ranged {
 			return false;
 		}
 		
-		removeSupplies(player, 1); //May need tweaking.
+		removeSupplies(player, 1, victim);
 		return true;
 	}
 	
@@ -221,11 +222,34 @@ public class Ranged {
 			return false;
 		}
 	}
+	/**
+	 * 
+	 * @param player
+	 * @param amount
+	 * @param victim
+	 */
 	
-	public static void removeSupplies(Player player, int amount) { 
-		PossesedItem a = player.getEquipment().get(Equipment.ARROWS_SLOT);
-		player.getEquipment().remove(a.getId(), amount);
-	}
+    public static void removeSupplies(Player player, int amount, Entity victim) { 
+        PossesedItem a = player.getEquipment().get(Equipment.ARROWS_SLOT);
+        double arrowRoll = RANDOM.nextDouble();
+        if(arrowRoll > 0.2) {
+            if (arrowRoll > 0.2 + getAvaMultiplier(player)) {
+                player.getEquipment().remove(a.getId(), amount);
+                Static.world.getGroundItemManager().add(a.getId(), amount, victim.getLocation(), player.getProtocolName(), false);
+            }
+        } else {
+            player.getEquipment().remove(a.getId(), amount);
+        }
+    }
+    
+    public static double getAvaMultiplier(Player player) {
+        if (player.getEquipment().contains(10498)) { //    Ava's attractor
+            return 0.8;
+        } else if (player.getEquipment().contains(10499)) { //Ava's accumulator
+            return 0.92;
+        }
+        return 0;
+    }
 	
 	public static void setHasSupplies(Player player) {
 		player.getCombat().ranged.hasSupplies = hasSupplies(player);

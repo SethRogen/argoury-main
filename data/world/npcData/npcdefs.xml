@@ -1,5 +1,58 @@
 <map>
-
+<entry>
+        <!-- This one has all variables, just for an example. -->
+        <int>1592</int>
+        <npcDef>
+            <hp>2100</hp>
+            <examine>It's a dragon'.</examine>
+            <attackable>true</attackable>
+            <aggressive>false</aggressive>
+            <attackSpeed>4</attackSpeed>
+            <attackEmote>13158</attackEmote>
+            <defenceEmote>13163</defenceEmote>
+            <deathEmote>13159</deathEmote>
+            <meleeMaxHit>225</meleeMaxHit>
+            <rangedMaxHit>225</rangedMaxHit>
+            <magicMaxHit>225</magicMaxHit>
+            <!-- <loopScript></loopScript>
+            <dialogueScript></dialogueScript> -->
+            <bonuses>
+                <double>0.0</double> <!-- OFFENSIVE STAB -->
+                <double>0.0</double> <!-- OFFENSIVE SLASH -->
+                <double>0.0</double> <!-- OFFENSIVE CRUSH -->
+                <double>0.0</double> <!-- OFFENSIVE MAGIC -->
+                <double>0.0</double> <!-- OFFENSIVE RANGED -->
+                <double>-21.0</double> <!-- DEFENSIVE STAB -->
+                <double>-21.0</double> <!-- DEFENSIVE SLASH -->
+                <double>-21.0</double> <!-- DEFENSIVE CRUSH -->
+                <double>-21.0</double> <!-- DEFENSIVE MAGIC -->
+                <double>-21.0</double> <!-- DEFENSIVE RANGED -->
+                <double>0.0</double> <!-- DEFENSIVE_SUMMONING -->
+                <double>0.0</double> <!-- ABSORB MELEE -->
+                <double>0.0</double> <!-- ABSORB MAGIC -->
+                <double>0.0</double> <!-- ABSORB RANGED -->
+                <double>0.05</double> <!-- OFFENSIVE STRENGTH -->
+                <double>0.0</double> <!-- OFFENSIVE RANGED STRENGTH -->
+                <double>0.0</double> <!-- PRAYER -->
+                <double>0.0</double> <!-- OFFENSIVE MAGIC DAMAGE -->                
+            </bonuses>
+            <levels>
+            	<int>215</int> <!-- attack -->
+            	<int>215</int> <!-- defence -->
+            	<int>215</int> <!-- strength -->
+            	<int>1</int> <!-- constitution -->
+            	<int>1</int> <!-- ranged -->
+            	<int>1</int> <!-- prayer -->
+            	<int>100</int> <!-- magic -->
+            </levels>
+            <poisonous>false</poisonous>
+            <attackType>RANGE</attackType>
+            <meleeStyle>SLASH</meleeStyle>
+            <aggressiveRange>6</aggressiveRange>
+            <uniqueBehaviour>false</uniqueBehaviour>
+            <behaviourScript>default</behaviourScript>
+        </npcDef>
+    </entry>
     <entry>
         <!-- This one has all variables, just for an example. -->
         <int>81</int>
@@ -54,6 +107,7 @@
             <behaviourScript>default</behaviourScript>
         </npcDef>
     </entry>
+    
     <entry>
         <!-- This one has all variables, just for an example. -->
         <int>1</int>
