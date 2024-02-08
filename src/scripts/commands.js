@@ -1,17 +1,17 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.content.tutorial)
-importPackage(com.ziotic.content.combat)
-importPackage(com.ziotic.content.shop)
-importPackage(com.ziotic.content.misc)
-importPackage(com.ziotic.engine.tick)
-importPackage(com.ziotic.logic.item)
-importPackage(com.ziotic.logic.map)
-importPackage(com.ziotic.logic.mask)
-importPackage(com.ziotic.logic.npc)
-importPackage(com.ziotic.logic.object)
-importPackage(com.ziotic.logic.utility)
-importPackage(com.ziotic.utility.script)
-importPackage(com.ziotic.content.prayer)
+importPackage(com.runescape)
+importPackage(com.runescape.content.tutorial)
+importPackage(com.runescape.content.combat)
+importPackage(com.runescape.content.shop)
+importPackage(com.runescape.content.misc)
+importPackage(com.runescape.engine.tick)
+importPackage(com.runescape.logic.item)
+importPackage(com.runescape.logic.map)
+importPackage(com.runescape.logic.mask)
+importPackage(com.runescape.logic.npc)
+importPackage(com.runescape.logic.object)
+importPackage(com.runescape.logic.utility)
+importPackage(com.runescape.utility.script)
+importPackage(com.runescape.content.prayer)
 
 invoke("interfaces")
 
@@ -180,12 +180,6 @@ function handleCommand(player, commandQuery, cmd, args, string) {
     	var req = java.lang.Integer.parseInt(args[0])
 
     	Static.proto.sendMessage(player, "Test-" + req, null, req)
-    } else if(cmd.equals("printflags") && checkAdmin(player)) {
-    	var flagX = java.lang.Integer.parseInt(args[0])
-    	var flagY = java.lang.Integer.parseInt(args[1])
-    	var flagZ = java.lang.Integer.parseInt(args[2])
-		var flag = Region.getAbsoluteClipping(flagX,flagY,flagZ)
-    	Static.proto.sendMessage(player, "tile flag is: " + flag)
     } else if( cmd.equals("openge") && checkAdmin(player)) {
 		Static.proto.sendConfig(player, 1109, -1);
 		Static.proto.sendConfig(player, 1110, 0);
@@ -348,7 +342,7 @@ function handleCommand(player, commandQuery, cmd, args, string) {
  		
  		
  		Static.proto.sendWindow(player, 549)
- 		//Static.proto.sendInterface(player, 549, 56, 3, true)
+ 		Static.proto.sendInterface(player, 549, 56, 3, true)
  		Static.proto.sendInterface(player, 549, 378, 2, false)
  		Static.proto.sendInterface(player, 549, 755, 2, false)
  	} else if (cmd.equals("resetmap")) {

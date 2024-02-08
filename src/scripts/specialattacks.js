@@ -1,9 +1,9 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.content.combat)
-importPackage(com.ziotic.content.prayer)
-importPackage(com.ziotic.content.combat.ticks)
-importPackage(com.ziotic.engine.tick)
-importPackage(com.ziotic.logic)
+importPackage(com.runescape)
+importPackage(com.runescape.content.combat)
+importPackage(com.runescape.content.prayer)
+importPackage(com.runescape.content.combat.ticks)
+importPackage(com.runescape.engine.tick)
+importPackage(com.runescape.logic)
 importPackage(java.lang)
 
 function handleSpecial(player, victim, combat, weapon, actiontype, defAnim) {

@@ -1,7 +1,7 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.content.cc)
-importPackage(com.ziotic.logic.item)
-importPackage(com.ziotic.logic.utility)
+importPackage(com.runescape)
+importPackage(com.runescape.content.cc)
+importPackage(com.runescape.logic.item)
+importPackage(com.runescape.logic.utility)
 
 function handleInput(player, inputId, input) {
     switch(inputId) {

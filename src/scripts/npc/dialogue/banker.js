@@ -1,5 +1,5 @@
-importPackage(com.ziotic.logic.utility)
-importPackage(com.ziotic.logic.dialogue)
+importPackage(com.runescape.logic.utility)
+importPackage(com.runescape.logic.dialogue)
 
 function dialogue() {
     var map = new java.util.HashMap()
@@ -45,7 +45,7 @@ function dialogue() {
     map.put(3, new StatementDialogue({
         pov : function() { return StatementDialogue.POV.NPC },
         text : function(convo) {
-            return [ "This is a branch of the Bank of Runescape. We have",
+            return [ "This is a branch of the Bank of Argoury. We have",
                      "branches in many towns." ]
         },
         handle : function(convo) { convo.stage(4) }

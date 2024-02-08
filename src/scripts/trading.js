@@ -1,8 +1,8 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.content.trading)
-importPackage(com.ziotic.logic.player)
-importPackage(com.ziotic.logic.utility)
-importPackage(com.ziotic.logic.item)
+importPackage(com.runescape)
+importPackage(com.runescape.content.trading)
+importPackage(com.runescape.logic.player)
+importPackage(com.runescape.logic.utility)
+importPackage(com.runescape.logic.item)
 
 invoke("interfaces")
 

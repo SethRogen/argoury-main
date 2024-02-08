@@ -1,6 +1,6 @@
-importPackage(com.ziotic.logic.item)
-importPackage(com.ziotic.logic.player)
-importPackage(com.ziotic.logic.utility)
+importPackage(com.runescape.logic.item)
+importPackage(com.runescape.logic.player)
+importPackage(com.runescape.logic.utility)
 
 var interfaces = this
 

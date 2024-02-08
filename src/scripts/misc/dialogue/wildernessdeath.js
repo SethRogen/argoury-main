@@ -1,5 +1,5 @@
-importPackage(com.ziotic.logic.map)
-importPackage(com.ziotic.logic.dialogue)
+importPackage(com.runescape.logic.map)
+importPackage(com.runescape.logic.dialogue)
 
 function dialogue() {
     var map = new java.util.HashMap()

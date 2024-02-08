@@ -1,0 +1,20 @@
+<map>
+    <entry>
+        <int>1</int>
+	<shop>
+	    <name>Test</name>
+	    <sampleStock>
+		<item>
+      		    <id>4153</id>
+      		    <amount>1</amount>
+    		</item>
+  	    </sampleStock>
+	    <stock>
+		<item>
+		    <id>4151</id>
+		    <amount>1</amount>
+    		</item>
+  	    </stock>
+	</shop>
+    </entry>
+</map>

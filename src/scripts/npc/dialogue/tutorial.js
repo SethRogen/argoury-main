@@ -1,6 +1,6 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.logic.dialogue)
-importPackage(com.ziotic.map)
+importPackage(com.runescape)
+importPackage(com.runescape.logic.dialogue)
+importPackage(com.runescape.map)
 
 invoke("interfaces")
 
@@ -14,7 +14,7 @@ function dialogue() {
 		    convo.getPlayer().getPathProcessor().setMoveSpeed(PathProcessor.MOVE_SPEED_WALK)
 		}
 
-		return [ "Welcome to Runescape, " + convo.getPlayer().getName() + "!" ] 
+		return [ "Welcome to Argoury, " + convo.getPlayer().getName() + "!" ] 
 	},
         handle : function(convo) { convo.stage(1)  }
     }))
@@ -34,7 +34,7 @@ function dialogue() {
     map.put(3, new StatementDialogue({
         pov : function() { return StatementDialogue.POV.NPC },
         text : function(convo) { return [ "Anyways, I'm here to tell you a little",
-                                        "about Runescape and how to get started." ] },
+                                        "about Argoury and how to get started." ] },
         handle : function(convo) { convo.stage(4) }
     }))
 
@@ -42,7 +42,7 @@ function dialogue() {
     map.put(4, new StatementDialogue({
         pov : function() { return StatementDialogue.POV.NPC },
         text : function(convo) { return [ "The first thing you need to know is that",
-					                    "at the moment, Runescape is in a stage of development",
+					                    "at the moment, Argoury is in a stage of development",
                                         "known as the 'alpha' stage." ] },
         handle : function(convo) { convo.stage(5) }
     }))
@@ -50,7 +50,7 @@ function dialogue() {
     map.put(5, new StatementDialogue({
         pov : function() { return StatementDialogue.POV.NPC },
         text : function(convo) { return [ "This is a very early stage of development.",
-					                    "In the coming future, Runescape will be released as",
+					                    "In the coming future, Argoury will be released as",
 					                    "'beta', and then 'final' stages!" ] },
         handle : function(convo) { convo.stage(6) }
     }))
@@ -74,13 +74,13 @@ function dialogue() {
         pov : function() { return StatementDialogue.POV.NPC },
         text : function(convo) { return [ "From there type any command you want. Check the",
 					                    "forums for a list of commands. Also for a list of",
-					                    "items, go to wwww.Runescape.com!" ] },
+					                    "items, go to wwww.runeid.com!" ] },
         handle : function(convo) { convo.stage(9) }
     }))
 
     map.put(9, new StatementDialogue({
         pov : function() { return StatementDialogue.POV.NPC },
-        text : function(convo) { return [ "That is all! If you need more help with Runescape,",
+        text : function(convo) { return [ "That is all! If you need more help with Argoury,",
 					                    "ask a moderator for more specific advice." ] },
         handle : function(convo) { convo.stage(10) }
     }))

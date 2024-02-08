@@ -1,6 +1,6 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.logic.item)
-importPackage(com.ziotic.logic.utility)
+importPackage(com.runescape)
+importPackage(com.runescape.logic.item)
+importPackage(com.runescape.logic.utility)
 
 invoke("interfaces")
 

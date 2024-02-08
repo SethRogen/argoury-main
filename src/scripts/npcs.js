@@ -1,4 +1,4 @@
-importPackage(com.ziotic.logic.npc.summoning)
+importPackage(com.runescape.logic.npc.summoning)
 
 function handleNPCOption2(player, npcId, npc) {
 	if(npc instanceof Familiar) {

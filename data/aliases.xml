@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+
+<properties>
+    <entry key="tile">com.runescape.logic.map.Tile</entry>
+    <entry key="npcDef">com.runescape.logic.npc.NPCXMLDefinition</entry>
+    <entry key="npcSpawn">com.runescape.logic.npc.NPCSpawn</entry>
+    <entry key="itemDef">com.runescape.logic.item.ItemXMLDefinition</entry>
+    <entry key="equipmentDefinition">com.runescape.logic.item.EquipmentDefinition</entry>
+    <entry key="weaponStyles">com.runescape.logic.item.EquipmentDefinition$WeaponStyles</entry>
+    <entry key="equipmentAnimations">com.runescape.logic.item.EquipmentDefinition$EquipmentAnimations</entry>
+    <entry key="equipmentType">com.runescape.logic.item.EquipmentDefinition$EquipmentType</entry>
+    <entry key="potion">com.runescape.logic.item.ConsumablesHandler$Potion</entry>
+    <entry key="eatableFood">com.runescape.logic.item.ConsumablesHandler$EatableFood</entry>
+    <entry key="ancientCurse">com.runescape.content.prayer.definitions.AncientCurseDefinition</entry>
+    <entry key="curseType">com.runescape.content.prayer.PrayerManager$CurseType</entry>
+    <entry key="prayerDef">com.runescape.content.prayer.definitions.PrayerDefinition</entry>
+    <entry key="prayerType">com.runescape.content.prayer.PrayerManager$PrayerType</entry>
+    <entry key="spell">com.runescape.content.combat.definitions.SpellDefinition</entry>
+    <entry key="item">com.runescape.logic.item.PossesedItem</entry>
+    <entry key="elementType">com.runescape.content.combat.definitions.SpellDefinition$ElementType</entry>
+    <entry key="combatType">com.runescape.content.combat.definitions.SpellDefinition$CombatType</entry>
+    <entry key="groupType">com.runescape.content.combat.definitions.SpellDefinition$GroupType</entry>
+    <entry key="shop">com.runescape.content.shop.ShopDefinition</entry>
+    <entry key="ammunition">com.runescape.content.combat.definitions.AmmunitionDefinition</entry>
+    <entry key="ammunitionType">com.runescape.content.combat.definitions.AmmunitionDefinition$Type</entry>
+    <entry key="ammunitionMaterial">com.runescape.content.combat.definitions.AmmunitionDefinition$Material</entry>
+    <entry key="ammunitionPoison">com.runescape.content.combat.definitions.AmmunitionDefinition$Poison</entry>
+    <entry key="boltTip">com.runescape.content.combat.definitions.AmmunitionDefinition$BoltTip</entry>
+    <entry key="bow">com.runescape.content.combat.definitions.BowDefinition</entry>
+    <entry key="bowType">com.runescape.content.combat.definitions.BowDefinition$Type</entry>
+    <entry key="bowMaterial">com.runescape.content.combat.definitions.BowDefinition$Material</entry>
+    <entry key="world">com.runescape.link.WorldEntry</entry>
+    <entry key="pouch">com.runescape.content.skill.member.summoning.SummoningPouch</entry>
+    <entry key="attackType">com.runescape.logic.npc.NPCXMLDefinition$AttackType</entry>
+    <entry key="meleeType">com.runescape.logic.npc.NPCXMLDefinition$MeleeStyle</entry>
+    <entry key="fishingSpot">com.runescape.logic.npc.misc.FishingSpotNPC</entry>
+</properties>

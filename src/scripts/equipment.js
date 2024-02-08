@@ -1,5 +1,5 @@
-importPackage(com.ziotic.logic.item)
-importPackage(com.ziotic.logic.player)
+importPackage(com.runescape.logic.item)
+importPackage(com.runescape.logic.player)
 
 function wieldEquipment(player, id, index) {
     var item = player.getInventory().get(index)

@@ -1,8 +1,8 @@
-importPackage(com.ziotic.content.magictemp)
-importPackage(com.ziotic.engine.tick)
-importPackage(com.ziotic.logic.map)
-importPackage(com.ziotic.logic.mask)
-importPackage(com.ziotic.logic.dialogue)
+importPackage(com.runescape.content.magictemp)
+importPackage(com.runescape.engine.tick)
+importPackage(com.runescape.logic.map)
+importPackage(com.runescape.logic.mask)
+importPackage(com.runescape.logic.dialogue)
 
 function dialogue() {
     var map = new java.util.HashMap()

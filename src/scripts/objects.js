@@ -1,6 +1,6 @@
-importPackage(com.ziotic)
-importPackage(com.ziotic.engine.tick)
-importPackage(com.ziotic.logic.map)
+importPackage(com.runescape)
+importPackage(com.runescape.engine.tick)
+importPackage(com.runescape.logic.map)
 
 function handleObjectOption1(player, objId, obj) {
     switch(objId) {
