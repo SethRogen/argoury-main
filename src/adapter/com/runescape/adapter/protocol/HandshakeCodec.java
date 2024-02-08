@@ -29,12 +29,12 @@ public class HandshakeCodec extends CumulativeProtocolDecoder implements Protoco
             switch (opcode) {
             
             	case 28: //Account Details
-            		AccountDetailCodec.decodeDetails(session, buffer);
-                    System.out.println("Print-out: Account DetailCodec Stage = 1");
+            		AccountConnectCodec.decodeDetails(session, buffer);
             	return false;
             	
             	case 22: //Account Complete (Button clicked)
-
+            		AccountDetailCodec.decodeDetails(session, buffer);
+                    System.out.println("Print-out: Account DetailCodec Stage = 1");
             		return false;
             	
                 case 14: //Login
