@@ -20,17 +20,19 @@ import com.runescape.utility.crypt.XTEA;
 public class AccountDetailCodec {
 	private static final Logger logger = Logging.log();
 	public static void decodeDetails(IoSession session, IoBuffer buffer) { 
-        int rsaBlockSize, rsaHeaderKey, affId, lang, game, uuid, additionalInfo, age;
+        int rsaBlockSize, rsaHeaderKey, affId, lang, game, uuid,  additionalInfo, age;
         String password, email;
         boolean subscribe;
         int[] xteaKey;
         byte[] xteaBlock;
+        long userFlow;
         XTEA xtea;
         IoBuffer buffer2;
-        System.out.println("here");
-        int size = buffer.getShort() & 0xffff; //PacketSize
+        
+        	int size = buffer.getShort() & 0xffff; //PacketSize
 			int clientRevision = buffer.getShort();
             if (clientRevision != Static.clientConf.getClientVersion()) {
+            	//
             }
             rsaBlockSize = buffer.getShort() & 0xffff;; // RSA block size
             if (rsaBlockSize > buffer.remaining()) {
@@ -50,15 +52,18 @@ public class AccountDetailCodec {
             xtea.decrypt(xteaBlock, 0, xteaBlock.length);
             buffer2 = IoBuffer.wrap(xteaBlock);
             email = Streams.readString(buffer);
-            password = Streams.readString(buffer);
-            lang = buffer.get();
-            game = buffer.get();
-            for (int i = 0; i < 24; i++) {
-                uuid = buffer.get();
+            affId = buffer2.getShort();
+            password = Streams.readString(buffer2);
+            userFlow = buffer2.getLong();
+            lang = buffer2.get();
+            game = buffer2.get();
+            for (int i = 0; i < 3; i++) {
+                uuid = buffer2.get();
             }
-            additionalInfo = buffer.get();
-            age = buffer.get();
-            subscribe = buffer.get() == 1;
+            additionalInfo = buffer2.get();
+            age = buffer2.get();
+            subscribe = buffer2.get() == 1;
             session.write(new FrameBuilder(1).writeByte(2).toFrame()).addListener(IoFutureListener.CLOSE);
+            
 		}
 }
