@@ -17,6 +17,7 @@ import com.runescape.utility.Logging;
  * @author Seth Rogen
  */
 public class HandshakeCodec extends CumulativeProtocolDecoder implements ProtocolCodecFactory {
+	
     private static Logger logger = Logging.log();
 
     public static final ProtocolCodecFilter FILTER = new ProtocolCodecFilter(new HandshakeCodec());
@@ -28,14 +29,12 @@ public class HandshakeCodec extends CumulativeProtocolDecoder implements Protoco
             switch (opcode) {
             
             	case 28: //Account Details
-                    session.write(new FrameBuilder(1).writeByte(2).toFrame());
+            		AccountDetailCodec.decodeDetails(session, buffer);
                     System.out.println("Print-out: Account DetailCodec Stage = 1");
-                    session.getFilterChain().replace("codec", AccountDetailsCodec.FILTER);
             	return false;
             	
             	case 22: //Account Complete (Button clicked)
-                    session.write(new FrameBuilder(1).writeByte(0).toFrame());
-                    session.getFilterChain().replace("codec", AccountCompleteCodec.FILTER);
+
             		return false;
             	
                 case 14: //Login
