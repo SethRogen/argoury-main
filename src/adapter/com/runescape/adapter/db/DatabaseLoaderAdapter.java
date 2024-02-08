@@ -60,8 +60,9 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
             sql = pool.acquire();
 
             Statement st = sql.createStatement();
-
-            ResultSet rs = st.executeQuery("SELECT * FROM members WHERE " + "members_seo_name='" + userName.replace("_","-") + "' LIMIT 1");
+            
+            ResultSet rs = st.executeQuery("SELECT * FROM members WHERE members_seo_name='" + userName.replace("_","-") + "' OR email='" + userName + "' LIMIT 1");
+            //ResultSet rs = st.executeQuery("SELECT * FROM members WHERE " + "members_seo_name='" + userName.replace("_","-") + "' LIMIT 1");
             if (!rs.next()) {
                 return LoginResponse.INVALID_DETAILS;
             }

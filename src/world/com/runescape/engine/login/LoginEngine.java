@@ -61,7 +61,6 @@ public class LoginEngine implements Runnable {
                         if (p2 != null) {
                             if (!(p2 instanceof Player) || !((Player) p2).isDestroyed()) {
                                 resp = LoginResponse.ALREADY_ONLINE;
-
                                 // TODO Allow for reconnections
                             }
                         }
