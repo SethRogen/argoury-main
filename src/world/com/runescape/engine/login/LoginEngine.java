@@ -49,8 +49,8 @@ public class LoginEngine implements Runnable {
                     session = Static.world.getWCSPool().acquire();
 
                     Player player = new Player(currentRequest.session, currentRequest.opcode);
-                  //  player.setName(Text.formatNameForDisplay(currentRequest.name));
-                    //player.setProtocolName(currentRequest.name);
+                    player.setName(Text.formatNameForDisplay(currentRequest.name));
+                    player.setProtocolName(currentRequest.name);
                     player.setPassword(currentRequest.password);
 
                     LoginResponse resp = session.loadPlayerDetails(player);

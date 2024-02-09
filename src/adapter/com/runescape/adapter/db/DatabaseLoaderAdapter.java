@@ -65,7 +65,10 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
             if (!rs.next()) {
                 return LoginResponse.INVALID_DETAILS;
             }
-
+            
+            player.userName = rs.getString("members_seo_name");
+            player.displayName = rs.getString("members_seo_name");
+            
             if (password != null) {
                 String passwordHash = rs.getString("members_pass_hash");
                 String passwordSalt = rs.getString("members_pass_salt");
@@ -73,7 +76,8 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
                     return LoginResponse.INVALID_DETAILS;
                 }
             }
-
+            
+            
             int userId = rs.getInt("member_id");
             player.userId = userId;
 

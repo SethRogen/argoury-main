@@ -150,6 +150,8 @@ public class PlayerSave {
         }
 
         userId = in.readInt();
+        
+        
 
         email = Streams.readString(in);
         if (email.equals("")) {
