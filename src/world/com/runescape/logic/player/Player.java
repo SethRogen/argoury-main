@@ -49,6 +49,7 @@ import com.runescape.logic.utility.NodeRunnable;
 import com.runescape.network.Frame;
 import com.runescape.utility.Destroyable;
 import com.runescape.utility.Logging;
+import com.runescape.utility.Text;
 
 import org.apache.mina.core.session.IoSession;
 

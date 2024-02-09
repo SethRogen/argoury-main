@@ -66,8 +66,8 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
                 return LoginResponse.INVALID_DETAILS;
             }
             
-            player.userName = rs.getString("members_seo_name");
-            player.displayName = rs.getString("members_seo_name");
+            player.userName = rs.getString("name");
+            player.displayName = rs.getString("name");
             
             if (password != null) {
                 String passwordHash = rs.getString("members_pass_hash");
