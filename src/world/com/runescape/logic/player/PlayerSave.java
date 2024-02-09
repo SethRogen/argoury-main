@@ -151,6 +151,8 @@ public class PlayerSave {
 
         userId = in.readInt();
         
+        	userName = Streams.readString(in);
+        	displayName = Streams.readString(in);
         
 
         email = Streams.readString(in);
@@ -307,7 +309,10 @@ public class PlayerSave {
             out.writeInt(MAGIC_NUMBER); // header key
 
             out.writeInt(userId);
-
+            
+            Streams.writeString(userName, out);
+            Streams.writeString(displayName, out);
+            
             if (email == null) {
                 out.writeByte(0);
             } else {
