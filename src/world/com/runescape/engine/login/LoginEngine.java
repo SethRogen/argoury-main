@@ -49,8 +49,8 @@ public class LoginEngine implements Runnable {
                     session = Static.world.getWCSPool().acquire();
 
                     Player player = new Player(currentRequest.session, currentRequest.opcode);
-                    player.setName(Text.formatNameForDisplay(currentRequest.name));
-                    player.setProtocolName(currentRequest.name);
+                  //  player.setName(Text.formatNameForDisplay(currentRequest.name));
+                    //player.setProtocolName(currentRequest.name);
                     player.setPassword(currentRequest.password);
 
                     LoginResponse resp = session.loadPlayerDetails(player);
@@ -61,6 +61,7 @@ public class LoginEngine implements Runnable {
                         if (p2 != null) {
                             if (!(p2 instanceof Player) || !((Player) p2).isDestroyed()) {
                                 resp = LoginResponse.ALREADY_ONLINE;
+
                                 // TODO Allow for reconnections
                             }
                         }

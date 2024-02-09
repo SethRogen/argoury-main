@@ -315,7 +315,11 @@ public class WorldClientSession implements Runnable, Poolable {
             save.load(data);
 
             player.setUserId(save.userId);
-
+            
+            player.setName(Text.formatNameForDisplay(save.userName));
+            
+            player.setProtocolName(save.displayName);
+            
             player.setEmail(save.email);
             player.setUnreadMessages(save.unreadMessages);
             player.setSubscriptionEnd(save.subscriptionEnd);

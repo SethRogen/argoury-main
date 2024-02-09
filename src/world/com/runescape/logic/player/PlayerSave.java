@@ -17,6 +17,10 @@ public class PlayerSave {
     public int userId = 0;
 
     public String email = null;
+    
+    public String userName;
+    public String displayName;
+    
     public int unreadMessages = 0;
     public long subscriptionEnd = 0;
 
@@ -65,7 +69,11 @@ public class PlayerSave {
 
     public void load(Player player) {
         userId = player.getUserId();
-        lastIPs = player.getLastIPs();
+        lastIPs = player.getLastIPs(); 
+        
+        userName = player.getName();
+        displayName = player.getProtocolName();
+        
         rights = player.getRights().intValue();
         isMuted = player.isMuted();
         if (player.inGame()) {
