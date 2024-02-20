@@ -1,5 +1,7 @@
 package com.runescape.adapter.protocol;
  
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,7 +24,10 @@ import com.runescape.utility.crypt.XTEA;
  
  
 public class AccountDetailCodec {
+	
     private static final Logger logger = Logging.log();
+
+
     public static void decodeDetails(IoSession session, IoBuffer buffer) { 
         int rsaBlockSize, rsaHeaderKey, affId, lang, game, uuid,  additionalInfo, age;
         String password, email;

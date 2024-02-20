@@ -131,11 +131,11 @@
     <npcSpawn>
         <id>8863</id>
         <location>
-            <x>2683</x>
-            <y>3305</y>
+            <x>3087</x>
+            <y>3500</y>
             <z>0</z>
         </location>
-        <range>5</range>
+        <range>0</range>
     </npcSpawn>
 
     <npcSpawn>

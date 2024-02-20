@@ -72,6 +72,7 @@ public class RS2CacheAdapter implements RS2Cache {
 		buffer.put((byte) 10).put(Whirlpool.whirlpool(currentData, 5, currentData.length - 5)).rewind();
 		fitChecksumFile = new RS2CacheFileAdapter(Static.rs2Cache, 255, 255, buffer.array());
 		logger.info("Loaded cache with " + realIndexCount + " index(es)");
+		System.out.println("There are currently: " + getIndex(22).getLength() * 0x3ff + " bitConfigs.");
 	}
 
 	public RS2CacheIndex getIndex(int id) {

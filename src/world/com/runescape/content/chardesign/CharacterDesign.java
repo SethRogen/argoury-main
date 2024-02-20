@@ -255,7 +255,7 @@ public class CharacterDesign implements ButtonHandler {
         Static.proto.sendAccessMask(player, 0, 204, 1028, 45, 0, 2);
         Static.proto.sendAccessMask(player, 0, 204, 1028, 107, 0, 2);
         Static.proto.sendAccessMask(player, 0, 204, 1028, 111, 0, 2);
-       // Static.proto.sendInterfaceVariable(player, 8089, 0);
+        //Static.proto.sendInterfaceVariable(player, 8247, 0);
        // Static.proto.sendInterfaceVariable(player, 8246, 1);
         Static.proto.sendInterfaceScript(player, 4244);
         app.setGender(Appearance.Gender.MALE);

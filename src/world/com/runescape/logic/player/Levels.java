@@ -6,6 +6,7 @@ import com.runescape.logic.item.ItemDefinition;
 import com.runescape.logic.item.PossesedItem;
 
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @author Lazaro
@@ -49,7 +50,7 @@ public class Levels {
             // levels.
             if (skillId <= 6 || skillId == 23)
                 calculateCombat();
-            player.doAnimation(199, 100);
+           // player.doAnimation(199, 100);
             Static.proto.sendMessage(player, "You've just advanced a " + SKILL_NAME[skillId] + " level! You have reached level " + newLevel + ".");
             // TODO Level up animations, etc.
         }
@@ -291,4 +292,25 @@ public class Levels {
         }
         return 0;
     }
+    
+    public int interpolate(int minChance, int maxChance, int minLvl, int maxLvl) {
+		   int value = 0;
+	       return minChance + (maxChance - minChance) * (value - minLvl) / (maxLvl - minLvl);
+	   }
+	    
+	   public double interpolate(double minChance, double maxChance, int minLvl, int maxLvl) {
+		   int value = 0;
+	       return minChance + (maxChance - minChance) * (value - minLvl) / (double) (maxLvl - minLvl);
+	   }
+
+	   public boolean interpolate(int minChance, int maxChance, int minLvl, int maxLvl, int cap) {
+	       int randomValue = new Random().nextInt(cap);
+	       int interpolatedValue = interpolate(minChance, maxChance, minLvl, maxLvl);
+	       return randomValue <= interpolatedValue;
+	    }
+	    
+	    public int interpolate(int low, int high, int level) {
+	       double interpolatedValue = Math.floor(low * (99 - level) / 98.0 + Math.floor(high * (level - 1) / 98.0) + 1);
+	       return (int) interpolatedValue;
+	    }
 }

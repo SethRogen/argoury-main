@@ -65,8 +65,7 @@ public class MageBank implements ItemOnObjectHandler, ObjectOptionHandler {
 	}
 
 	@Override
-	public void handleItemOnObject(Player player, PossesedItem item,
-			int itemIndex, GameObject obj) {
+	public void handleItemOnObject(Player player, PossesedItem item, int itemIndex, GameObject obj) {
 		switch (obj.getId()) {
 		case 2558:
 		case 2557:

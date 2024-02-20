@@ -1,5 +1,6 @@
 package com.runescape.adapter.protocol.handler;
 
+import com.runescape.Static;
 import com.runescape.logic.dialogue.Conversation;
 import com.runescape.logic.player.Player;
 import com.runescape.network.Frame;
@@ -24,7 +25,20 @@ public class DialogueHandler extends PlayerFrameHandler {
         if (buttonId2 == 65535) {
             buttonId2 = 0;
         }
-
+        switch(interfaceId) { 
+        case 905: 
+        	switch(buttonId) {
+        	case 14: 
+        		Static.proto.sendCloseChatboxInterface(player);
+        		System.out.println("Testing");
+        		break;
+        	}
+        	break;
+        default:
+            logger.debug("Unhandled interface [id=" + interfaceId + ", button=" + buttonId + ", button2=" + buttonId2 + "]");
+            break;
+        
+        }
         Conversation conversation = player.getCurrentConversation();
         if (conversation != null) {
             switch (interfaceId) {

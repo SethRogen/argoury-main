@@ -22,6 +22,7 @@ import com.runescape.content.prayer.PlayerPrayerManager;
 import com.runescape.content.prayer.PrayerManager;
 import com.runescape.content.prayer.PrayerManager.Book;
 import com.runescape.content.shop.Shop;
+import com.runescape.content.skill.SkillDialouge;
 import com.runescape.content.trading.TradingManager;
 import com.runescape.engine.tick.Tick;
 import com.runescape.link.WorldClientSession;
@@ -59,8 +60,8 @@ import org.apache.mina.core.session.IoSession;
 public class Player extends Entity implements PlayerType, Destroyable {
     private static final Logger logger = Logging.log();
 
-    public static final Tile NOOB_SPAWN_POINT = Tile.locate(2677, 3299, 0);
-    public static final Tile DEFAULT_SPAWN_POINT = Tile.locate(2656, 3296, 0);
+    public static final Tile NOOB_SPAWN_POINT = Tile.locate(3087, 3502, 0);
+    public static final Tile DEFAULT_SPAWN_POINT = Tile.locate(3092, 3496, 0);
 
     public static final NodeRunnable<Entity> DEATH_EVENT_1 = new NodeRunnable<Entity>() {
         @Override
@@ -200,6 +201,7 @@ public class Player extends Entity implements PlayerType, Destroyable {
 
     private Appearance appearance = null;
     private Levels levels = null;
+    private SkillDialouge skilldialouge = null;
     private Friends friends = null;
     public GEI gei = null;
 
@@ -271,6 +273,8 @@ public class Player extends Entity implements PlayerType, Destroyable {
             appearance = new Appearance(this);
 
             levels = new Levels(this);
+            
+            skilldialouge = new SkillDialouge();
 
             localGroundItems = new ArrayList<GroundItem>();
             localGameObjects = new ArrayList<GameObject>();
@@ -605,6 +609,10 @@ public class Player extends Entity implements PlayerType, Destroyable {
 
     public Levels getLevels() {
         return levels;
+    }
+    
+    public SkillDialouge getSkillDialouge() {
+        return skilldialouge;
     }
 
     @Override
