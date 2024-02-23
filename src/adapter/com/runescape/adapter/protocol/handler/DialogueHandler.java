@@ -1,6 +1,7 @@
 package com.runescape.adapter.protocol.handler;
 
 import com.runescape.Static;
+import com.runescape.content.skill.free.cooking.CookingTick;
 import com.runescape.logic.dialogue.Conversation;
 import com.runescape.logic.player.Player;
 import com.runescape.network.Frame;
@@ -12,10 +13,10 @@ import org.apache.mina.core.session.IoSession;
 
 /**
  * @author Lazaro
+ * @author Seth Rogen
  */
 public class DialogueHandler extends PlayerFrameHandler {
     private static final Logger logger = Logging.log();
-
     @Override
     public void handleFrame(Player player, IoSession session, Frame frame) {
         int interfaceSet = frame.readInt();
@@ -30,7 +31,8 @@ public class DialogueHandler extends PlayerFrameHandler {
         	switch(buttonId) {
         	case 14: 
         		Static.proto.sendCloseChatboxInterface(player);
-        		System.out.println("Testing");
+        		
+        		player.registerTick(new CookingTick(player));
         		break;
         	}
         	break;

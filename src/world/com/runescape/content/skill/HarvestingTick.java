@@ -7,7 +7,7 @@ import com.runescape.logic.object.GameObject;
 import com.runescape.logic.player.Player;
 
 /**
- * @author Lazaro
+ * @author Seth Rogen
  */
 public abstract class HarvestingTick extends Tick {
     protected final Player player;
