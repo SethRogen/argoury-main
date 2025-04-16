@@ -16,5 +16,9 @@ Argoury is a dedicated Runescape private server enthusiast committed to creating
 * Client: https://github.com/SethRogen/client-main
 * Cache: https://mega.nz/file/8jMRCThC#rxhtA0-mzylNLhcCIdX1kmIEfL8_BHiTdgjvY0_6GDY
 
+# Database SQL File
+
+* https://pastebin.com/C3sHBjVs
+
 # Credits
  * Ziotic 640 team for the great source they have developed
