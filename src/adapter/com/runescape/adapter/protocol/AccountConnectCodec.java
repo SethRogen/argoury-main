@@ -30,7 +30,7 @@ import com.runescape.utility.crypt.XTEA;
 public class AccountConnectCodec {
 	
 	private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/argoury";
+    private static final String DB_URL = "jdbc:mysql://localhost:3307/argoury";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "";
     private static final Logger logger = Logging.log();
@@ -100,7 +100,6 @@ public class AccountConnectCodec {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            System.out.println("Email Address: " + email);
             session.write(new FrameBuilder(1).writeByte(2).toFrame()).addListener(IoFutureListener.CLOSE);
     	}
 
