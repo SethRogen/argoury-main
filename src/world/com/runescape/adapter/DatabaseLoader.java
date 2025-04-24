@@ -25,7 +25,4 @@ public interface DatabaseLoader {
     public void saveClan(Clan clan);
 
     public void reload();
-
-    public LoginResponse createMember(String name, int rank, String email, long date, String ipaddr, String title, int warninglevel, int lastwarning, int age, String tempBan,
-    		String displayName, String seoName, String password, boolean banned);
 }

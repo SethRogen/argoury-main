@@ -49,43 +49,6 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
     public boolean isIPBanned(String ip) {
         return false;
     }
-    
-    
-    @Override
-    public LoginResponse createMember(String name, int rank, String email, long date, String ipaddr, String title, int warninglevel, int lastwarning, int age, String tempBan, String displayName, String seoName, String password, boolean banned) {
-    	String salt = generateSalt(5);  // 5-character salt, like IPB
-    	String hashedPassword = "";
-    	try {
-    	    hashedPassword = hashPassword(password, salt);
-    	} catch (Exception e) {
-    	    logger.error("Error hashing password", e);
-    	    return null;
-    	}
-    	
-    	Pool<SQLSession> pool = Static.currentLink().getSQLPool();
-
-        SQLSession sql = null;
-        try {
-            sql = pool.acquire();
-
-            Statement st = sql.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM members WHERE email='" + email + "' LIMIT 1");
-            if (!rs.next()) {
-                return LoginResponse.INVALID_DETAILS;
-            }
-            st.executeUpdate("INSERT INTO members (name, member_group_id, email, joined,  ip_address, title, warn_level, warn_lastwarn, age, temp_ban, members_display_name, members_seo_name, members_pass_hash, members_pass_salt, member_banned) "
-            						+ "VALUES ('" + name + "', '" + rank + "', '" + email + "', '" + date + "', '" + ipaddr + "', '" + title + "', '" + warninglevel + "', '" + lastwarning + "', '" + age + "', '" + tempBan + "', '" + displayName + "', '" + seoName + "', '" + hashedPassword + "',  '" + salt + "', '" + (banned ? 1 : 0) + "')");
-            logger.info("Registering member: " + name + ", email: " + email + ", IP: " + ipaddr);
-            st.close();
-        } catch (SQLException e) {
-            logger.error("Error registering Member [email =" + email + "]");
-        } finally {
-            if (sql != null) {
-                pool.release(sql);
-            }
-        }
-		return LoginResponse.ERROR;
-    }    
 
     @Override
     public LoginResponse loadPlayer(String userName, String password, PlayerSave player) {
@@ -507,32 +470,6 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
         }
     }
 
-    private String toHexString(byte[] data) {
-        StringBuffer buf = new StringBuffer();
-        for (int i = 0; i < data.length; i++) {
-            int halfByte = (data[i] >>> 4) & 0x0F;
-            int twoHalfs = 0;
-            do {
-                if ((0 <= halfByte) && (halfByte <= 9))
-                    buf.append((char) ('0' + halfByte));
-                else
-                    buf.append((char) ('a' + (halfByte - 10)));
-                halfByte = data[i] & 0x0F;
-            } while (twoHalfs++ < 1);
-        }
-        return buf.toString();
-    }
-    private static String generateSalt(int length) {
-        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        StringBuilder salt = new StringBuilder();
-        Random rnd = new Random();
-        for (int i = 0; i < length; i++) {
-            salt.append(chars.charAt(rnd.nextInt(chars.length())));
-        }
-        // IPB escapes backslashes, so replace them if any
-        return salt.toString().replace("\\", "\\\\");
-    }
-
     private static String md5(String input) throws Exception {
         MessageDigest md = MessageDigest.getInstance("MD5");
         byte[] messageDigest = md.digest(input.getBytes("UTF-8"));
@@ -543,11 +480,5 @@ public class DatabaseLoaderAdapter implements DatabaseLoader {
             hexString.append(hex);
         }
         return hexString.toString();
-    }
-
-    private static String hashPassword(String password, String salt) throws Exception {
-        String hash1 = md5(salt);
-        String hash2 = md5(password);
-        return md5(hash1 + hash2);
     }
 }

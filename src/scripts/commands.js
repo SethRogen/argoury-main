@@ -157,6 +157,15 @@ if (cmd === "item" && !checkInPVP(player)) {
         var id = java.lang.Integer.parseInt(args[0])
         var id2 = java.lang.Integer.parseInt(args[1])
         Static.proto.sendInterfaceVariable(player, id, id2)
+		} else if(cmd.equals("runscript2") && checkAdmin(player)) {
+		  Static.proto.sendCloseInterface(player)
+		  var id = java.lang.Integer.parseInt(args[0])
+		  Static.proto.sendInterfaceScript(player, id)
+		} else if(cmd.equals("config") && checkAdmin(player)) {
+		  Static.proto.sendCloseInterface(player)
+		  var id = java.lang.Integer.parseInt(args[0])
+		  var id2 = java.lang.Integer.parseInt(args[1])
+		  Static.proto.sendInterfaceConfig(player, id, id2)
     } else if(cmd.equals("groto")) {
 	    player.setTeleportDestination(Tile.locate(2970, 9672, 0))
     } else if(cmd.equals("tele") && checkAdmin(player)) {
@@ -380,7 +389,7 @@ if (cmd === "item" && !checkInPVP(player)) {
     } else if (cmd.equals("searchinter")) {
     	SearchInterface.searchInterface(player, 0, 1000, 2)
 	} else if (cmd.equals("chardesign") && !checkInPVP(player)) {
-		player.initiateCharacterDesign()
+		player.initiateCharacterDesign();
 	} else if (cmd.equals("players")) {
 		Static.proto.sendMessage(player, "There is currently <col=ff0000>"  + Static.world.getPlayers().size() + "</col> players online!")
  	} else if (cmd.equals("yell") && checkMod(player)) {

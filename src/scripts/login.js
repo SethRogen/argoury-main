@@ -26,7 +26,7 @@ function onLogin(player) {
     	Static.proto.sendRunEnergy(player)
     	Static.proto.sendConfig(player, 173, player.isRunning() ? 1 : 0)
     	player.updateXPCounter()
-
+		Static.proto.sendInterfaceScript(player, 776, "double xp");
     	player.setInPVP(Combat.isInPVPZone(player))
     	Combat.updatePVPStatus(player)
     	player.setInMulti(Combat.isInMultiZone(player))

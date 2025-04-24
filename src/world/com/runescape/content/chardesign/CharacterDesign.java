@@ -75,16 +75,22 @@ public class CharacterDesign implements ButtonHandler {
         for (GameInterface gameInterface : gameInterfaces) {
             Static.proto.sendCloseInterface(player, gameInterface);
         }
-        Static.proto.sendWindow(player, 1028);
-        Static.proto.sendAccessMask(player, 0, 204, 1028, 45, 0, 0);
-        Static.proto.sendAccessMask(player, 0, 204, 1028, 107, 0, 0);
-        Static.proto.sendAccessMask(player, 0, 204, 1028, 111, 0, 0);
+        Static.proto.sendWindow(player, 1028); //Root Interface
+        Static.proto.sendAccessMask(player, 0, 204, 1028, 45, 0, 2);
+        Static.proto.sendAccessMask(player, 0, 204, 1028, 107, 0, 2);
+        Static.proto.sendAccessMask(player, 0, 204, 1028, 111, 0, 2);
         Static.proto.sendInterfaceScript(player, 4244);
+        
+      //  Static.proto.sendInterfaceConfig(player, 8089, 0);
+        //Static.proto.sendInterfaceConfig(player, 8246, 1);
         app.setGender(Appearance.Gender.MALE);
         randomizeLook(player, app);
     }
     
     
+	public static void openUsernameSetup(Player player) {
+		Static.proto.sendInterfaceScript(player, 3943);
+	}
     
     @Override
     public void handleButton(Player player, int opcode, int interfaceId, int b, int b2, int b3) {
@@ -92,60 +98,44 @@ public class CharacterDesign implements ButtonHandler {
         Static.callScript("buttons.handleButton", player, opcode, interfaceId, b, b2, b3);
         Appearance app = player.getAppearance();
         CharacterDesign des = player.getCharacterDesign();
-        System.out.println("Char Design Button: " + b);
         switch (b) {
-        
-        
-            case 115:
-                des.state = InterfaceState.CUSTOMIZATION;
-                break;
-                
-                
-            case 117: //for completing user modifying screen.
-                Static.proto.sendInterfaceScript(player, 3943);
-                app.refresh();
-                break;
-                
-                
-                
-            case 116:
-                des.state = InterfaceState.MAIN;
-                break;
-                
-                
-                
-            case 158: //First Click of random names
-            	
-            	break;
-            	
-            	
-            	
-            case 165: //This button is for randomizing names 
-            	//TODO:sendString
-            	for (int i = 0; i < 5; i++) { 
-            		Static.proto.sendString(player, 1028, 158 + i, "test");
-            	}
-            	Static.proto.sendInterfaceScript(player, 3943);
-            	break;
-                
-            case 166: //Confirms Username 
-            	Static.proto.sendInterfaceScript(player, 3945, 1, -1, 0);
-            	/**
-            	 * active this code when username is complete here
-            	 */
-            	switch (player.getDisplayMode()) {
-                	case FIXED:
-                		Static.proto.switchToFixedScreen(player);
+        case 115:
+            des.state = InterfaceState.CUSTOMIZATION;
+            break;
+        case 116:
+            des.state = InterfaceState.MAIN;
+            break;
+            
+            
+            
+            /**
+             * open username creation Script
+             */
+        case 117:
+        	openUsernameSetup(player);
+        	app.refresh();
+           /* switch (player.getDisplayMode()) {
+                case FIXED:
+                    Static.proto.switchToFixedScreen(player);
                     break;
-                	case RESIZABLE:
-                	case FULL_SCREEN:
-                		Static.proto.switchToResizableScreen(player);
+                case RESIZABLE:
+                case FULL_SCREEN:
+                    Static.proto.switchToResizableScreen(player);
                     break;
-            	}
-                if (player.isNoob()) {
-                    Tutorial.onFirstLogin(player);
-                }
-                break;
+            }
+            openUsernameSetup(player);
+            
+            if (player.isNoob()) {
+                Tutorial.onFirstLogin(player);
+            }*/
+            System.out.println("Complete / Username setup here");
+            break;
+            
+            //Create Name Complete Button
+        case 166: 
+        	Static.proto.sendInterfaceScript(player, 3945, 1 , -1, 0);
+        	System.out.println("Complete Username Setup");
+        	break;
             
             case 95:
             case 96:

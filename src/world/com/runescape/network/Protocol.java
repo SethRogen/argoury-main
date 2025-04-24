@@ -76,6 +76,11 @@ public interface Protocol {
 
     public Protocol sendLevel(Player player, int skillId);
 
+    /**
+     * 
+     * @param sendConfig
+     * @param this is known as a var a none varbit
+     */
     public Protocol sendConfig(Player player, int id, int val);
 
     public Protocol sendRunEnergy(Player player);
@@ -107,7 +112,13 @@ public interface Protocol {
     public Protocol sendSpecialString(Player player, int id, String string);
 
     public Protocol sendClanChatMessage(Player player, String clan, String sender, int rights, String message, long id);
-
+    
+    /**
+     * 
+     * @param sendInterfaceVariable
+     * @param this sends varbits
+     * @return
+     */
     public Protocol sendInterfaceVariable(Player player, int id, int val);
 
     public Protocol sendNPCHead(Player player, int interfaceId, int childId, int npcId);
